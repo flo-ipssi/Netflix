@@ -38,7 +38,7 @@ class DefaultController extends Controller
             $em->persist($task);
             $em->flush();
 
-            return $this->redirectToRoute('user_list');
+            return $this->redirectToRoute('films');
         }
         return $this->render('user/user-add.html.twig', [
             'form' => $form->createView()

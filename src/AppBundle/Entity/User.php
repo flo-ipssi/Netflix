@@ -54,6 +54,12 @@ class User
      */
     private $memberId = 3;
 
+    public function __construct()
+    {
+        $this->creatAt = new \DateTime();
+        $this->memberId = 3;
+    }
+
     /**
      * Get id
      *
