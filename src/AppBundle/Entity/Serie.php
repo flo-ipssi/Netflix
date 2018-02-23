@@ -2,12 +2,12 @@
 namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 /**
- * Films
+ * Series
  *
- * @ORM\Table(name="films")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\FilmsRepository")
+ * @ORM\Table(name="series")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\SerieRepository")
  */
-class Films
+class Series
 {
     /**
      * @var int
@@ -36,6 +36,12 @@ class Films
      */
     private $category;
     /**
+     * @var int
+     *
+     * @ORM\Column(name="number_episode", type="integer")
+     */
+    private $numberEpisode;
+    /**
      * @var string
      *
      * @ORM\Column(name="description", type="string", length=255)
@@ -61,7 +67,7 @@ class Films
      *
      * @param string $title
      *
-     * @return Films
+     * @return Series
      */
     public function setTitle($title)
     {
@@ -82,7 +88,7 @@ class Films
      *
      * @param string $author
      *
-     * @return Films
+     * @return Series
      */
     public function setAuthor($author)
     {
@@ -103,7 +109,7 @@ class Films
      *
      * @param string $category
      *
-     * @return Films
+     * @return Series
      */
     public function setCategory($category)
     {
@@ -120,11 +126,32 @@ class Films
         return $this->category;
     }
     /**
+     * Set numberEpisode
+     *
+     * @param integer $numberEpisode
+     *
+     * @return Series
+     */
+    public function setNumberEpisode($numberEpisode)
+    {
+        $this->numberEpisode = $numberEpisode;
+        return $this;
+    }
+    /**
+     * Get numberEpisode
+     *
+     * @return int
+     */
+    public function getNumberEpisode()
+    {
+        return $this->numberEpisode;
+    }
+    /**
      * Set description
      *
      * @param string $description
      *
-     * @return Films
+     * @return Series
      */
     public function setDescription($description)
     {
@@ -145,7 +172,7 @@ class Films
      *
      * @param \DateTime $date
      *
-     * @return Films
+     * @return Series
      */
     public function setDate($date)
     {
