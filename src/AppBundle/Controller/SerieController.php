@@ -2,23 +2,23 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Entity\Film;
+use AppBundle\Entity\Serie;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-class FilmController extends Controller
+class SerieController extends Controller
 {
     /**
-     * @Route("/films", name="films")
+     * @Route("/series", name="series")
      */
-    public function listMovies()
+    public function listSerie()
     {
         $em = $this->getDoctrine()->getManager();
-        $films = $em->getRepository(Film::class)->findAll();
+        $series = $em->getRepository(Serie::class)->findAll();
 
-        return $this->render('user/films.html.twig',[
-            'films' => $films
+        return $this->render('user/series.html.twig',[
+            'series' => $series
         ]);
     }
 }

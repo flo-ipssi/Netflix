@@ -8,22 +8,24 @@
 
 namespace AppBundle\DataFixtures;
 
-use AppBundle\Entity\Film;
+use AppBundle\Entity\Serie;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
+use Symfony\Component\Validator\Constraints\DateTime;
 
-class FilmFixtures extends Fixture
+class SerieFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-        $film = new Film();
-        $film
+        $serie = new Serie();
+        $serie
             ->setAuthor('test')
             ->setCategory('test')
             ->setDate(new \DateTime())
+            ->setNumberEpisode(5)
             ->setDescription('test')
             ->setTitle('test');
-        $manager->persist($film);
+        $manager->persist($serie);
         $manager->flush();
 
     }

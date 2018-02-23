@@ -52,7 +52,8 @@ class User
      *
      * @ORM\Column(name="member_id", type="integer")
      */
-    private $memberId;
+    private $memberId = 3;
+
     /**
      * Get id
      *
@@ -153,9 +154,9 @@ class User
      *
      * @return User
      */
-    public function setCreatAt($creatAt)
+    public function setCreatAt()
     {
-        $this->creatAt = $creatAt;
+        $this->creatAt = new \DateTime("now");
         return $this;
     }
     /**

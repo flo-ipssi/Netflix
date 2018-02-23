@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="series")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\SerieRepository")
  */
-class Series
+class Serie
 {
     /**
      * @var int
