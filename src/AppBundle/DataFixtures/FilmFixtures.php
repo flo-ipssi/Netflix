@@ -22,6 +22,7 @@ class FilmFixtures extends Fixture
             ->setCategory('test')
             ->setDate(new \DateTime())
             ->setDescription('test')
+            ->setDuration(200)
             ->setTitle('test');
         $manager->persist($film);
         $manager->flush();

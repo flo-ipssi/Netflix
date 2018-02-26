@@ -54,6 +54,15 @@ class Serie
      */
     private $date;
     /**
+     * @var int
+     *
+     * @ORM\Column(name="duration", type="integer")
+     */
+    private $duration;
+
+
+
+    /**
      * Get id
      *
      * @return int
@@ -62,12 +71,13 @@ class Serie
     {
         return $this->id;
     }
+
     /**
      * Set title
      *
      * @param string $title
      *
-     * @return Series
+     * @return Serie
      */
     public function setTitle($title)
     {
@@ -83,12 +93,13 @@ class Serie
     {
         return $this->title;
     }
+
     /**
      * Set author
      *
      * @param string $author
      *
-     * @return Series
+     * @return Serie
      */
     public function setAuthor($author)
     {
@@ -104,12 +115,13 @@ class Serie
     {
         return $this->author;
     }
+
     /**
      * Set category
      *
      * @param string $category
      *
-     * @return Series
+     * @return Serie
      */
     public function setCategory($category)
     {
@@ -125,12 +137,13 @@ class Serie
     {
         return $this->category;
     }
+
     /**
      * Set numberEpisode
      *
      * @param integer $numberEpisode
      *
-     * @return Series
+     * @return Serie
      */
     public function setNumberEpisode($numberEpisode)
     {
@@ -146,12 +159,13 @@ class Serie
     {
         return $this->numberEpisode;
     }
+
     /**
      * Set description
      *
      * @param string $description
      *
-     * @return Series
+     * @return Serie
      */
     public function setDescription($description)
     {
@@ -167,12 +181,13 @@ class Serie
     {
         return $this->description;
     }
+
     /**
      * Set date
      *
      * @param \DateTime $date
      *
-     * @return Series
+     * @return Serie
      */
     public function setDate($date)
     {
@@ -188,4 +203,27 @@ class Serie
     {
         return $this->date;
     }
+
+
+    /**
+     * Set duration
+     *
+     * @param $duration
+     * @return Serie
+     */
+    public function setDuration($duration)
+    {
+        $this->duration = $duration;
+        return $this;
+    }
+    /**
+     * Get duration
+     *
+     * @return string
+     */
+    public function getDuration($duration)
+    {
+        return $duration->$duration;
+    }
+
 }

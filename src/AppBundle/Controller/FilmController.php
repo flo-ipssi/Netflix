@@ -16,7 +16,6 @@ class FilmController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $films = $em->getRepository(Film::class)->findAll();
-
         return $this->render('user/films.html.twig',[
             'films' => $films
         ]);

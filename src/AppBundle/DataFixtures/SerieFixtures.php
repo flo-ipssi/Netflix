@@ -24,6 +24,7 @@ class SerieFixtures extends Fixture
             ->setDate(new \DateTime())
             ->setNumberEpisode(5)
             ->setDescription('test')
+            ->setDuration(22)
             ->setTitle('test');
         $manager->persist($serie);
         $manager->flush();

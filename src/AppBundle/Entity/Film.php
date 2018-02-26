@@ -47,11 +47,16 @@ class Film
      * @ORM\Column(name="date", type="datetime")
      */
     private $date;
+
     /**
-     * Get id
+     * @var int
      *
-     * @return int
+     * @ORM\Column(name="duration", type="integer")
      */
+    private $duration;
+
+
+
     public function getId()
     {
         return $this->id;
@@ -161,4 +166,25 @@ class Film
     {
         return $this->date;
     }
+
+    /**
+     * Set duration
+     *
+     * @return Film
+     */
+    public function setDuration($duration)
+    {
+        $this->duration = $duration;
+        return $this;
+    }
+    /**
+     * Get duration
+     *
+     * @return string
+     */
+    public function getDuration($duration)
+    {
+        return $duration->$duration;
+    }
+
 }

@@ -52,12 +52,14 @@ class User
      *
      * @ORM\Column(name="member_id", type="integer")
      */
-    private $memberId = 3;
+    private $memberId;
 
     public function __construct()
     {
         $this->creatAt = new \DateTime();
-        $this->memberId = 3;
+        if (empty($this->memberId)) {
+            $this->memberId = 3;
+        }
     }
 
     /**

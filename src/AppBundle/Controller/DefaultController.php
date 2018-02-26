@@ -42,6 +42,7 @@ class DefaultController extends Controller
         }
         return $this->render('user/user-add.html.twig', [
             'form' => $form->createView()
+
         ]);
     }
 
