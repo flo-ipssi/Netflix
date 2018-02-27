@@ -1,9 +1,6 @@
 <?php
-
 namespace AppBundle\Entity;
-
 use Doctrine\ORM\Mapping as ORM;
-
 /**
  * Commentary
  *
@@ -20,50 +17,42 @@ class Commentary
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
     /**
      * @var int
      *
      * @ORM\Column(name="id_user", type="integer")
      */
     private $idUser;
-
     /**
      * @var int
      *
      * @ORM\Column(name="id_work", type="integer")
      */
     private $idWork;
-
     /**
      * @var int
      *
      * @ORM\Column(name="type", type="integer")
      */
     private $type;
-
     /**
      * @var int
      *
      * @ORM\Column(name="icon", type="integer")
      */
     private $icon;
-
     /**
      * @var string
      *
      * @ORM\Column(name="commentary", type="text", nullable=true)
      */
     private $commentary;
-
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="creatAd", type="datetime")
      */
     private $creatAd;
-
-
     /**
      * Get id
      *
@@ -73,7 +62,6 @@ class Commentary
     {
         return $this->id;
     }
-
     /**
      * Set idUser
      *
@@ -84,10 +72,8 @@ class Commentary
     public function setIdUser($idUser)
     {
         $this->idUser = $idUser;
-
         return $this;
     }
-
     /**
      * Get idUser
      *
@@ -97,7 +83,6 @@ class Commentary
     {
         return $this->idUser;
     }
-
     /**
      * Set idWork
      *
@@ -108,10 +93,8 @@ class Commentary
     public function setIdWork($idWork)
     {
         $this->idWork = $idWork;
-
         return $this;
     }
-
     /**
      * Get idWork
      *
@@ -121,7 +104,6 @@ class Commentary
     {
         return $this->idWork;
     }
-
     /**
      * Set type
      *
@@ -132,10 +114,8 @@ class Commentary
     public function setType($type)
     {
         $this->type = $type;
-
         return $this;
     }
-
     /**
      * Get type
      *
@@ -145,7 +125,6 @@ class Commentary
     {
         return $this->type;
     }
-
     /**
      * Set icon
      *
@@ -156,10 +135,8 @@ class Commentary
     public function setIcon($icon)
     {
         $this->icon = $icon;
-
         return $this;
     }
-
     /**
      * Get icon
      *
@@ -169,7 +146,6 @@ class Commentary
     {
         return $this->icon;
     }
-
     /**
      * Set commentary
      *
@@ -180,10 +156,8 @@ class Commentary
     public function setCommentary($commentary)
     {
         $this->commentary = $commentary;
-
         return $this;
     }
-
     /**
      * Get commentary
      *
@@ -193,7 +167,6 @@ class Commentary
     {
         return $this->commentary;
     }
-
     /**
      * Set creatAd
      *
@@ -204,10 +177,8 @@ class Commentary
     public function setCreatAd($creatAd)
     {
         $this->creatAd = $creatAd;
-
         return $this;
     }
-
     /**
      * Get creatAd
      *
@@ -218,4 +189,3 @@ class Commentary
         return $this->creatAd;
     }
 }
-

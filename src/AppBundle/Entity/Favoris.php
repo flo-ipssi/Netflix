@@ -1,9 +1,6 @@
 <?php
-
 namespace AppBundle\Entity;
-
 use Doctrine\ORM\Mapping as ORM;
-
 /**
  * Favoris
  *
@@ -20,29 +17,24 @@ class Favoris
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
     /**
      * @var int
      *
      * @ORM\Column(name="id_user", type="integer")
      */
     private $idUser;
-
     /**
      * @var int
      *
      * @ORM\Column(name="id_work", type="integer")
      */
     private $idWork;
-
     /**
      * @var int
      *
      * @ORM\Column(name="type", type="integer")
      */
     private $type;
-
-
     /**
      * Get id
      *
@@ -52,7 +44,6 @@ class Favoris
     {
         return $this->id;
     }
-
     /**
      * Set idUser
      *
@@ -63,10 +54,8 @@ class Favoris
     public function setIdUser($idUser)
     {
         $this->idUser = $idUser;
-
         return $this;
     }
-
     /**
      * Get idUser
      *
@@ -76,7 +65,6 @@ class Favoris
     {
         return $this->idUser;
     }
-
     /**
      * Set idWork
      *
@@ -87,10 +75,8 @@ class Favoris
     public function setIdWork($idWork)
     {
         $this->idWork = $idWork;
-
         return $this;
     }
-
     /**
      * Get idWork
      *
@@ -100,7 +86,6 @@ class Favoris
     {
         return $this->idWork;
     }
-
     /**
      * Set type
      *
@@ -111,10 +96,8 @@ class Favoris
     public function setType($type)
     {
         $this->type = $type;
-
         return $this;
     }
-
     /**
      * Get type
      *
@@ -125,4 +108,3 @@ class Favoris
         return $this->type;
     }
 }
-

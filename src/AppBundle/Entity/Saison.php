@@ -1,9 +1,6 @@
 <?php
-
 namespace AppBundle\Entity;
-
 use Doctrine\ORM\Mapping as ORM;
-
 /**
  * Saison
  *
@@ -20,29 +17,24 @@ class Saison
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
     /**
      * @var int
      *
      * @ORM\Column(name="number_saison", type="integer")
      */
     private $numberSaison;
-
     /**
      * @var int
      *
      * @ORM\Column(name="episode", type="integer")
      */
     private $episode;
-
     /**
      * @var string
      *
      * @ORM\Column(name="link", type="string", length=255)
      */
     private $link;
-
-
     /**
      * Get id
      *
@@ -52,7 +44,6 @@ class Saison
     {
         return $this->id;
     }
-
     /**
      * Set numberSaison
      *
@@ -63,10 +54,8 @@ class Saison
     public function setNumberSaison($numberSaison)
     {
         $this->numberSaison = $numberSaison;
-
         return $this;
     }
-
     /**
      * Get numberSaison
      *
@@ -76,7 +65,6 @@ class Saison
     {
         return $this->numberSaison;
     }
-
     /**
      * Set episode
      *
@@ -87,10 +75,8 @@ class Saison
     public function setEpisode($episode)
     {
         $this->episode = $episode;
-
         return $this;
     }
-
     /**
      * Get episode
      *
@@ -100,7 +86,6 @@ class Saison
     {
         return $this->episode;
     }
-
     /**
      * Set link
      *
@@ -111,10 +96,8 @@ class Saison
     public function setLink($link)
     {
         $this->link = $link;
-
         return $this;
     }
-
     /**
      * Get link
      *
@@ -125,4 +108,3 @@ class Saison
         return $this->link;
     }
 }
-

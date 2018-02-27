@@ -20,7 +20,7 @@ class SerieFixtures extends Fixture
         $serie = new Serie();
         $serie
             ->setAuthor('test')
-            ->setCategory('test')
+            ->setCategory(0)
             ->setDate(new \DateTime())
             ->setNumberEpisode(5)
             ->setDescription('test')

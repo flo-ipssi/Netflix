@@ -4,8 +4,10 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\User;
 use AppBundle\Form\UserType;
+use AppBundle\Manager\UserManager;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\SecurityBundle\Tests\Functional\Bundle\CsrfFormLoginBundle\Form\UserLoginType;
 use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
@@ -21,30 +23,22 @@ class DefaultController extends Controller
         ]);
     }
 
+
+
+
+
     /**
-     * @Route("/post", name="post")
+     * @Route("/account_all", name="user_info")
      */
-    public function indexRegistration(Request $request)
+    public function listAction(UserManager $userManager)
     {
-        $user = new User();
+        $user = $userManager->getUsers();
 
-        $form = $this->createForm(UserType::class, $user);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid())
-        {
-            $task = $form->getData();
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($task);
-            $em->flush();
-
-            return $this->redirectToRoute('films');
-        }
-        return $this->render('user/user-add.html.twig', [
-            'form' => $form->createView()
-
+        return $this->render('default/account.html.twig', [
+            'user' => $user
         ]);
     }
+
 
 
 }

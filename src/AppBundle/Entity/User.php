@@ -1,13 +1,17 @@
 <?php
+
 namespace AppBundle\Entity;
+
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
+
 /**
  * User
  *
  * @ORM\Table(name="user")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
  */
-class User
+class User implements UserInterface
 {
     /**
      * @var int
@@ -17,50 +21,56 @@ class User
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+
     /**
      * @var string
      *
      * @ORM\Column(name="firstname", type="string", length=255)
      */
     private $firstname;
+
     /**
      * @var string
      *
      * @ORM\Column(name="lastname", type="string", length=255)
      */
     private $lastname;
+
     /**
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=255)
      */
     private $email;
+
     /**
      * @var string
      *
      * @ORM\Column(name="password", type="string", length=255)
      */
     private $password;
+
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="creatAt", type="datetime")
      */
     private $creatAt;
+
     /**
      * @var int
      *
      * @ORM\Column(name="member_id", type="integer")
      */
-    private $memberId;
+    private $memberId = 3;
+
 
     public function __construct()
     {
         $this->creatAt = new \DateTime();
-        if (empty($this->memberId)) {
-            $this->memberId = 3;
-        }
+        $this->memberId = 3;
     }
+
 
     /**
      * Get id
@@ -71,6 +81,7 @@ class User
     {
         return $this->id;
     }
+
     /**
      * Set firstname
      *
@@ -81,8 +92,10 @@ class User
     public function setFirstname($firstname)
     {
         $this->firstname = $firstname;
+
         return $this;
     }
+
     /**
      * Get firstname
      *
@@ -92,6 +105,7 @@ class User
     {
         return $this->firstname;
     }
+
     /**
      * Set lastname
      *
@@ -102,8 +116,10 @@ class User
     public function setLastname($lastname)
     {
         $this->lastname = $lastname;
+
         return $this;
     }
+
     /**
      * Get lastname
      *
@@ -113,6 +129,7 @@ class User
     {
         return $this->lastname;
     }
+
     /**
      * Set email
      *
@@ -123,8 +140,10 @@ class User
     public function setEmail($email)
     {
         $this->email = $email;
+
         return $this;
     }
+
     /**
      * Get email
      *
@@ -134,6 +153,7 @@ class User
     {
         return $this->email;
     }
+
     /**
      * Set password
      *
@@ -144,8 +164,10 @@ class User
     public function setPassword($password)
     {
         $this->password = $password;
+
         return $this;
     }
+
     /**
      * Get password
      *
@@ -155,6 +177,7 @@ class User
     {
         return $this->password;
     }
+
     /**
      * Set creatAt
      *
@@ -176,6 +199,7 @@ class User
     {
         return $this->creatAt;
     }
+
     /**
      * Set memberId
      *
@@ -186,8 +210,10 @@ class User
     public function setMemberId($memberId)
     {
         $this->memberId = $memberId;
+
         return $this;
     }
+
     /**
      * Get memberId
      *
@@ -197,4 +223,35 @@ class User
     {
         return $this->memberId;
     }
+
+
+
+
+    public function getRoles()
+    {
+        // TODO: Implement getRoles() method.
+        return ['ROLE_USER'];
+    }
+
+    public function getSalt()
+    {
+        // TODO: Implement getSalt() method.
+        return null;
+    }
+
+    public function getUsername()
+    {
+        // TODO: Implement getUsername() method.
+        return $this->email;
+    }
+
+    public function eraseCredentials()
+    {
+        // TODO: Implement eraseCredentials() method.
+        return;
+    }
+
 }
+
+
+

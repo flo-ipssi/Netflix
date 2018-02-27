@@ -19,7 +19,7 @@ class FilmFixtures extends Fixture
         $film = new Film();
         $film
             ->setAuthor('test')
-            ->setCategory('test')
+            ->setCategory(0)
             ->setDate(new \DateTime())
             ->setDescription('test')
             ->setDuration(200)
