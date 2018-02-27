@@ -24,7 +24,8 @@ class FilmFixtures extends Fixture
             ->setDate(new \DateTime())
             ->setDescription('test')
             ->setDuration(200)
-            ->setTitle('test');
+            ->setTitle('test')
+            ->setBrochure('web/Ressources/img/icone.jpg');
         $manager->persist($film);
         $manager->flush();
 

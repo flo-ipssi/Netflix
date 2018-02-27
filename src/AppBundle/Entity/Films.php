@@ -1,11 +1,12 @@
 <?php
 namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Films
  *
  * @ORM\Table(name="films")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\FilmRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\FilmsRepository")
  */
 class Films
 {
@@ -53,10 +54,12 @@ class Films
      * @ORM\Column(name="duration", type="integer")
      */
     private $duration;
+
     public function getId()
     {
         return $this->id;
     }
+
     /**
      * Set title
      *
@@ -162,6 +165,7 @@ class Films
     {
         return $this->date;
     }
+
     /**
      * Set duration
      *
@@ -175,10 +179,34 @@ class Films
     /**
      * Get duration
      *
-     * @return string
+     * @return int
      */
-    public function getDuration($duration)
+    public function getDuration()
     {
-        return $duration->$duration;
+        return $this->duration;
+    }
+
+
+
+
+
+    /**
+     * @ORM\Column(type="string")
+     *
+     * @Assert\NotBlank(message="Please, upload the product brochure as a PDF file.")
+     * @Assert\File(mimeTypes={ "jpeg/" })
+     */
+    private $brochure;
+
+    public function getBrochure()
+    {
+        return $this->brochure;
+    }
+
+    public function setBrochure($brochure)
+    {
+        $this->brochure = $brochure;
+
+        return $this;
     }
 }
