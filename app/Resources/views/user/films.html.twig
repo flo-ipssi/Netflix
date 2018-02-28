@@ -1,11 +1,45 @@
 <html>
 <head>
-    <meta charset="utf-8"/>
-    <title>Films</title>
+    <meta charset="UTF-8">
+    <meta name="viewport"  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Netflix</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link href="{{ asset('css/media.css') }}" rel="stylesheet">
 </head>
 <body>
-    {% for film in films %}
-    <p>{{ film.title }}</p>
-    {% endfor %}
+    {% include 'templates/header.html.twig' %}
+    <div class="container">
+        <h2>
+            <span class="underline">Film</span>
+            <select class="selectpicker" data-style="btn-danger">
+                <option>Catégorie</option>
+            </select>
+
+            <select class="selectpicker" data-style="btn-danger">
+                <option>Trier</option>
+            </select>
+        </h2>
+        <div class="list">
+            <ul class="flex-container">
+                <li class="flex-item">
+                    <div>
+                        <img src="https://lumiere-a.akamaihd.net/v1/images/pt_blackpanther_characterposter_shuri_155fa2da.jpeg" />
+                        <p><a href="" >Black Panther</a></p>
+                    </div>
+                </li>
+                {% for film in films %}
+                    <li class="flex-item">
+                        <div>
+                            <img src="{{ asset(film.brochure) }}" />
+                            <p><a href="{{ film.title }}" >{{ film.title }}</a></p>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
 </body>
 </html>

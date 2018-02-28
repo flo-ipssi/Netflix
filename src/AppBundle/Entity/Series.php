@@ -5,7 +5,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Series
  *
  * @ORM\Table(name="series")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\SerieRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\SeriesRepository")
  */
 class Series
 {

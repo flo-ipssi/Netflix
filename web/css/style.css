@@ -1,0 +1,76 @@
+body{
+    background: url("../img/home.jpg") no-repeat;
+    background-size: cover;
+    min-height: 730px;
+}
+
+header{
+    padding: 10px;
+    height: 80px;
+}
+
+header ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+header ul li{
+    display: inline-block;
+}
+header ul li.left{
+    float:left;
+}
+
+header ul li.right{
+    float:right;
+}
+
+#password, #username{
+    border: 0px;
+    border-radius: 12px;
+    padding: 5px 11px 5px 18px;
+    width: 180px;
+}
+
+
+header ul li input,header ul li button{
+    margin: 10px 10px;
+}
+
+.btn {
+    background: #d93434;
+    -webkit-border-radius: 8;
+    -moz-border-radius: 8;
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 16px;
+    padding: 5px 20px 5px 20px;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background: #f50c33;
+    text-decoration: none;
+}
+
+/*CONTENT*/
+.container{
+    padding: 50px 0px;
+}
+
+
+.container h1,.container h3,.container h5{
+    color: #aaa;
+    line-height: 50px;
+}
+
+.container h5{
+    margin-top: 100px;
+}
+
+.container a{
+    width: 450px;
+    font-size: 30px;
+    font-weight: 600;
+}

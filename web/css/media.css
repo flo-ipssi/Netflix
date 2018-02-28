@@ -1,0 +1,134 @@
+body{
+    background: url("../img/film.jpg") no-repeat;
+    background-size: cover;
+}
+
+header{
+    padding: 10px;
+    height: 90px;
+    background: #000000b3;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+header ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+header ul li{
+    display: inline-block;
+}
+header ul li.left{
+    float:left;
+    margin-top: -6px;
+}
+
+header ul li.right{
+    float: right;
+    margin: 0px 20px;
+    font-size: 23px;
+}
+header ul li.right a{
+    text-decoration: none;
+    color: #C9C9C9;
+}
+
+header ul li button{
+    margin: 0px 10px;
+}
+
+.btn {
+    background: #d93434;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 16px;
+    padding: 5px 20px 5px 20px;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background: #f50c33;
+    text-decoration: none;
+}
+
+.underline{
+    border-bottom: 3px solid #d93434;
+    color: #eee;
+    font-weight: 700;
+}
+
+/*CONTENT*/
+.container {
+    max-width: 1245px;
+    margin: 114px auto;
+}
+
+
+.container h2{
+    color: #aaa;
+    line-height: 20px;
+}
+.container h2 select{
+    border: 2px solid #FFF;
+    background: #000c;
+    color: #FFF;
+    border-radius: 9px;
+    font-size: 20px;
+    width: 200px;
+    padding: 6px 16px;
+    margin: 14px -7px 24px 50px;
+}
+
+div.list{
+    background: #000c;
+}
+.flex-container {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    justify-content: left;
+}
+
+.flex-item {
+    width: 225px;
+    height: 262px;
+    margin-top: 10px;
+    line-height: 139px;
+    color: white;
+    font-weight: bold;
+    font-size: 3em;
+    text-align: center;
+    float: left;
+    margin: 10px 9px 50px;
+}
+
+.flex-item img{
+    width: 225px;
+    height: 262px;
+}
+
+.flex-item p{
+    width: 100%;
+    line-height: 0px;
+    margin-top: 17px;
+    font-weight: 300;
+    font-size: 20px;
+}
+.flex-item p a{
+    width: 100%;
+    font-weight: 300;
+    font-size: 20px;
+    text-decoration: none;
+    color: #eeeeee;
+}

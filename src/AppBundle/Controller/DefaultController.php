@@ -25,8 +25,6 @@ class DefaultController extends Controller
 
 
 
-
-
     /**
      * @Route("/account_all", name="user_info")
      */
@@ -39,6 +37,12 @@ class DefaultController extends Controller
         ]);
     }
 
-
+    public function menuAction()
+    {
+        $tab = array("Documentaire", "Serie", "Film");
+        return $this->render('default/menu.html.twig', [
+            'tab' => $tab
+        ]);
+    }
 
 }

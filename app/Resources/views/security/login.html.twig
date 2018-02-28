@@ -5,20 +5,32 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    {% stylesheets  '@AppBundle/Resources/public/css/*' filter='cssrewrite' %}"
+    <title>Netflix</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 <body>
 {# app/Ressources/security/login.html.twig #}
 {% if error %}
     <div>{{ error.messageKey }}</div>
 {% endif %}
-<form action="{{ path('login') }}" method="post">
-    <label for="username">Email:</label>
-    <input type="text" id="username" name="_username" value="{{ last_username }} " />
-    <label for="password">Mot de passe:</label>
-    <input type="password" id="password" name="_password" />
-    <button type="submit">login</button>
-</form>
+<header>
+    <nav>
+        <form action="{{ path('login') }}" method="post">
+            <ul>
+                <li class="left"><img src="{{ asset('img/logo.png') }}"></li>
+                <li class="right"><button class="btn" type="submit">Connexion</button></li>
+                <li class="right"><input type="password" id="password" name="_password" placeholder="Mot de passe"/></li>
+                <li class="right"><input type="text" id="username" name="_username" placeholder="Email" /></li>
+            </ul>
+        </form>
+    </nav>
+</header>
+<div class="container">
+    <h1>Découvrez et redécouvrez avec Netflix</h1>
+    <h3>Par la compagnie Florémy and Corp</h3>
+    <h5>Pas encore inscris ma-men ?</h5>
+    <a href="#" class="btn btn-lg btn-danger">Inscris-toi</a>
+</div>
 </body>
 </html>

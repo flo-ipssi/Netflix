@@ -30,7 +30,7 @@ class FilmManager {
 
 
     public function deleteFilm($id){
-        $film = $this->getUser($id);
+        $film = $this->getFilm($id);
         $this->em->remove($film);
         $this->em->flush();
     }
