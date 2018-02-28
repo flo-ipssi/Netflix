@@ -1,10 +1,8 @@
 <?php
 namespace AppBundle\Manager;
-
-use AppBundle\Entity\Film;
+use AppBundle\Entity\Films;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Doctrine\ORM\EntityManagerInterface;
-
 class FilmManager {
     /** @var EntityManagerInterface */
     private $em;
@@ -14,7 +12,7 @@ class FilmManager {
         $this->em = $entityManager;
         $this->passwordEncoder = $passwordEncoder;
     }
-    public function createUser(Film $film)
+    public function addFilm(Films $film)
     {
         $film
             ->setTitle($film->getTitle())
@@ -23,12 +21,11 @@ class FilmManager {
             ->setCategory( $film->getCategory())
             ->setDescription( $film->getDescription())
             ->setBrochure( $film->getBrochure())
+            ->setVideo( $film->getVideo())
             ->setDuration( $film->getDuration());
         $this->em->persist($film);
         $this->em->flush();
     }
-
-
     public function deleteFilm($id){
         $film = $this->getFilm($id);
         $this->em->remove($film);
@@ -36,14 +33,13 @@ class FilmManager {
     }
     public function getFilms()
     {
-        return $this->em->getRepository(Film:: class)
+        return $this->em->getRepository(Films:: class)
             ->findAll();
     }
     public function getFilm($id)
     {
-        return $this->em->getRepository(Film:: class)
+        return $this->em->getRepository(Films:: class)
             ->find($id);
     }
 }
-
 ?>

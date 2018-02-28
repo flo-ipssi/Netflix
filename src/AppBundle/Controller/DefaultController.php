@@ -25,18 +25,6 @@ class DefaultController extends Controller
 
 
 
-    /**
-     * @Route("/account_all", name="user_info")
-     */
-    public function listAction(UserManager $userManager)
-    {
-        $user = $userManager->getUsers();
-
-        return $this->render('default/account.html.twig', [
-            'user' => $user
-        ]);
-    }
-
     public function menuAction()
     {
         $tab = array("Documentaire", "Serie", "Film");
@@ -44,5 +32,21 @@ class DefaultController extends Controller
             'tab' => $tab
         ]);
     }
+
+
+
+    /**
+     * @Route("/account_all", name="user_info")
+     */
+    public function listAction(UserManager $userManager)
+    {
+        $user = $userManager->getUsers();
+
+        return $this->render('user/account.html.twig', [
+            'user' => $user
+        ]);
+    }
+
+
 
 }

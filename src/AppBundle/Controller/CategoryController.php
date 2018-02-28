@@ -21,3 +21,5 @@ class CategoryController extends Controller
 
 
 }
+
+?>
