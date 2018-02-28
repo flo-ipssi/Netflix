@@ -45,7 +45,7 @@ class Films
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date", type="date")
+     * @ORM\Column(name="date", type="datetime")
      */
     private $date;
     /**
@@ -65,7 +65,7 @@ class Films
      *
      * @param string $title
      *
-     * @return Film
+     * @return Films
      */
     public function setTitle($title)
     {
@@ -86,7 +86,7 @@ class Films
      *
      * @param string $author
      *
-     * @return Film
+     * @return Films
      */
     public function setAuthor($author)
     {
@@ -107,7 +107,7 @@ class Films
      *
      * @param string $category
      *
-     * @return Film
+     * @return Films
      */
     public function setCategory($category)
     {
@@ -128,7 +128,7 @@ class Films
      *
      * @param string $description
      *
-     * @return Film
+     * @return Films
      */
     public function setDescription($description)
     {
@@ -149,7 +149,7 @@ class Films
      *
      * @param \DateTime $date
      *
-     * @return Film
+     * @return Films
      */
     public function setDate($date)
     {
@@ -169,7 +169,7 @@ class Films
     /**
      * Set duration
      *
-     * @return Film
+     * @return Films
      */
     public function setDuration($duration)
     {
@@ -179,7 +179,7 @@ class Films
     /**
      * Get duration
      *
-     * @return int
+     * @return string
      */
     public function getDuration()
     {
@@ -187,14 +187,11 @@ class Films
     }
 
 
-
-
-
     /**
      * @ORM\Column(type="string")
      *
-     * @Assert\NotBlank(message="Please, upload the product brochure as a PDF file.")
-     * @Assert\File(mimeTypes={ "jpeg/" })
+     * @Assert\NotBlank(message="Please, upload the product brochure as a image file.")
+     * @Assert\File(mimeTypes={ "image/jpeg", "video/mp4"})
      */
     private $brochure;
 
@@ -206,6 +203,27 @@ class Films
     public function setBrochure($brochure)
     {
         $this->brochure = $brochure;
+
+        return $this;
+    }
+
+
+    /**
+     * @ORM\Column(type="string")
+     *
+     * @Assert\NotBlank(message="Please, upload the product brochure as a video file.")
+     * @Assert\File(mimeTypes={ "video/mp4", "video/quicktime"})
+     */
+    private $video;
+
+    public function getVideo()
+    {
+        return $this->video;
+    }
+
+    public function setVideo($video)
+    {
+        $this->video = $video;
 
         return $this;
     }

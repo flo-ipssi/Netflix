@@ -32,13 +32,13 @@ class Documentary
     /**
      * @var string
      *
-     * @ORM\Column(name="category", type="string", length=255)
+     * @ORM\Column(name="category", type="integer", length=11)
      */
     private $category;
     /**
-     * @var string
+     * @var int
      *
-     * @ORM\Column(name="description", type="text")
+     * @ORM\Column(name="description", type="integer")
      */
     private $description;
     /**
@@ -95,7 +95,7 @@ class Documentary
     /**
      * Set category
      *
-     * @param string $category
+     * @param int $category
      *
      * @return Documentary
      */
@@ -107,7 +107,7 @@ class Documentary
     /**
      * Get category
      *
-     * @return string
+     * @return int
      */
     public function getCategory()
     {
