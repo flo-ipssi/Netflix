@@ -1,9 +1,6 @@
 <?php
-
 namespace AppBundle\Entity;
-
 use Doctrine\ORM\Mapping as ORM;
-
 /**
  * Category
  *
@@ -22,15 +19,12 @@ class Category
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Series", mappedBy="category")
      */
     private $id;
-
     /**
      * @var string
      *
      * @ORM\Column(name="genre", type="string", length=255)
      */
     private $genre;
-
-
     /**
      * Get id
      *
@@ -40,7 +34,6 @@ class Category
     {
         return $this->id;
     }
-
     /**
      * Set genre
      *
@@ -51,10 +44,8 @@ class Category
     public function setGenre($genre)
     {
         $this->genre = $genre;
-
         return $this;
     }
-
     /**
      * Get genre
      *
@@ -65,4 +56,3 @@ class Category
         return $this->genre;
     }
 }
-

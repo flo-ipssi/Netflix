@@ -1,11 +1,11 @@
 <?php
+
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Films;
 use AppBundle\Entity\User;
-use AppBundle\Entity\Series;
+use AppBundle\Entity\Serie;
 use AppBundle\Form\FilmType;
-use AppBundle\Form\SerieType;
 use AppBundle\Form\UserType;
 use AppBundle\Manager\UserManager;
 use AppBundle\Manager\FilmManager;
@@ -27,6 +27,9 @@ class AdminController extends Controller
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
         ]);
     }
+
+
+
     /**
      * @Route("/admin_films", name="admin_films")
      */
@@ -38,78 +41,119 @@ class AdminController extends Controller
             'films' => $films
         ]);
     }
+
+
+
     /**
-     * @Route("/film/edit/{id}", name="film_edit")
+     * @Route("/admin/film/edit/{id}", name="film_edit")
      */
     public function editfilmAction(FilmManager $filmManager, Request $request,  $id)
-    {
-        $em = $this->getDoctrine()->getManager();
-        /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
-        $film = $em->getRepository(Films:: class)
-            ->find($id);
-        $film->setBrochure(null);
-        $film->setVideo(null);
-        $form = $this->createForm(FilmType:: class, $film);
-        // $film->setBrochure(new File($this->getParameter('brochures_directory').'/'.$film->getBrochure()));
-        //$film->setVideo(new File($this->getParameter('video_directory').'/'.$film->getVideo()));
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid())
-        {
-            $newfilm = $form->getData();
-            $filmManager->addFilm($newfilm);
-            return $this->redirectToRoute('films');
-        }
-        return $this->render('media/film-edit.html.twig', [
-            'form' => $form->createView(),
-        ]);
-    }
+      {
+          $em = $this->getDoctrine()->getManager();
+          /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
+          $film = $em->getRepository(Films:: class)
+              ->find($id);
+
+          $film->setBrochure(null);
+          $film->setVideo(null);
+          $form = $this->createForm(FilmType:: class, $film);
+         // $film->setBrochure(new File($this->getParameter('brochures_directory').'/'.$film->getBrochure()));
+          //$film->setVideo(new File($this->getParameter('video_directory').'/'.$film->getVideo()));
+          $form->handleRequest($request);
+          if ($form->isSubmitted() && $form->isValid())
+          {
+              $newfilm = $form->getData();
+              $filmManager->addFilm($newfilm);
+              return $this->redirectToRoute('films');
+          }
+          return $this->render('media/film-edit.html.twig', [
+              'form' => $form->createView(),
+          ]);
+      }
+
+
     /**
-     * @Route("/film/delete/{id}", name="film-delete", requirements={"id"="\d+"})
+     * @Route("/admin/film/delete/{id}", name="film-delete", requirements={"id"="\d+"})
      */
     public function deleteFilmAction(FilmManager $filmManager, $id)
     {
+
+        $uploadPath = $this->get('kernel')->getRootDir().'/../web/uploads';
+        $film = $filmManager->getFilm($id);
+        if($film->getBrochure()){
+            unlink($uploadPath.'/brochures/'.$film->getBrochure());
+        }
+        if($film->getVideo()) {
+            unlink($uploadPath . '/brochures/' . $film->getVideo());
+        }
         $filmManager->deleteFilm($id);
-        return $this->redirectToRoute('films');
+        return $this->redirectToRoute("admin_films");
+
     }
+
+
+
+
+
+
+
     /**
      * @Route("/admin_users", name="admin_users")
      */
     public function listAction(UserManager $userManager)
     {
         $user = $userManager->getUsers();
+
         return $this->render('admin/profiles.html.twig', [
             'user' => $user
         ]);
     }
+
+
+
+
+
     /**
-     * @Route("/user/edit/{id}", name="user_edit")
+     * @Route("/admin/user/edit/{id}", name="admin_edit")
      */
     public function editAction(UserManager $userManager, Request $request,  $id)
     {
-        $em = $this->getDoctrine()->getManager();
-        $user = $em->getRepository(User:: class)
-            ->find($id);
-        $form = $this->createForm(UserType:: class, $user);
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid())
-        {
-            $user = $form->getData();
-            $userManager->createUser($user);
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($user);
-            $em->flush();
-            return $this->redirectToRoute('admin_users');
-        }
-        return $this->render('user/user-edit.html.twig', [ 'form' => $form->createView()
-        ]);
+
+    $em = $this->getDoctrine()->getManager();
+    $user = $em->getRepository(User:: class)
+    ->find($id);
+
+    $form = $this->createForm(UserType:: class, $user);
+
+    $form->handleRequest($request);
+    if ($form->isSubmitted() && $form->isValid())
+    {
+    $user = $form->getData();
+    $userManager->createUser($user);
+    $em = $this->getDoctrine()->getManager();
+    $em->persist($user);
+    $em->flush();
+    return $this->redirectToRoute('admin_users');
     }
+
+    return $this->render('user/edit_account.html.twig', [ 'form' => $form->createView()
+    ]);
+    }
+
+
+
+
     /**
-     * @Route("/user/delete/{id}", name="user-delete", requirements={"id"="\d+"})
+     * @Route("/admin/user/delete/{id}", name="user-delete", requirements={"id"="\d+"})
      */
     public function deleteuserAction(UserManager $userManager, $id)
     {
         $userManager->deleteUser($id);
+
+
         return $this->redirectToRoute('admin_users');
+
+
     }
 
 
@@ -120,20 +164,19 @@ class AdminController extends Controller
     public function listSeries()
     {
         $em = $this->getDoctrine()->getManager();
-        $series = $em->getRepository(Series::class)->findAll();
+        $series = $em->getRepository(Serie::class)->findAll();
         return $this->render('admin/series_admin.html.twig',[
             'series' => $series
         ]);
     }
-
     /**
-     * @Route("/serie/edit/{id}", name="serie_edit")
+     * @Route("/admin/serie/edit/{id}", name="serie_edit")
      */
     public function editserieAction(SerieManager $serieManager, Request $request,  $id)
     {
         $em = $this->getDoctrine()->getManager();
         /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
-        $serie = $em->getRepository(Series:: class)
+        $serie = $em->getRepository(Serie:: class)
             ->find($id);
         $serie->setBrochure(null);
         $serie->setVideo(null);
@@ -152,7 +195,7 @@ class AdminController extends Controller
         ]);
     }
     /**
-     * @Route("/serie/delete/{id}", name="serie-delete", requirements={"id"="\d+"})
+     * @Route("/admin/serie/delete/{id}", name="serie-delete", requirements={"id"="\d+"})
      */
     public function deleteSerieAction(SerieManager $serieManager, $id)
     {
@@ -161,4 +204,5 @@ class AdminController extends Controller
     }
 
 }
+
 ?>

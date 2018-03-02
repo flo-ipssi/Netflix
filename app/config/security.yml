@@ -25,5 +25,7 @@ security:
                 target: login
 
     access_control:
-        - { path: ^/category, roles: "ROLE_USER" }
-        - { path: ^/account, roles: "ROLE_USER" }
+        - { path: ^/admin, roles: "ROLE_ADMIN" }
+        - { path: ^/user, roles: "ROLE_USER" }
+        - { path: ^/films, roles: ["ROLE_USER", "ROLE_ADMIN"] }
+        - { path: ^/films, roles: ["ROLE_USER", "ROLE_ADMIN"] }

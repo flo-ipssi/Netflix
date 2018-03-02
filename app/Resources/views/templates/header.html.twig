@@ -1,15 +1,24 @@
 <header>
     <nav>
-            <ul>
-                <li class="left"><img src="{{ asset('img/logo.png') }}"></li>
-                {{ render(controller('AppBundle:Default:searchBar')) }}
+        <ul>
+            <li class="left"><img src="{{ asset('img/logo.png') }}"></li>
+            {{ render(controller('AppBundle:Default:searchBar')) }}
 
+
+            <li class="right">
+                <form action="{{ path('logout') }}" method="post">
+                    <button class="btn-red" type="submit">Déconnexion</button>
+                </form>
+            </li>
+            {{ render(controller('AppBundle:Default:menu')) }}
+            {% if is_granted('ROLE_ADMIN') %}
                 <li class="right">
-                    <form action="{{ path('logout') }}" method="post">
-                        <button class="btn" type="submit">Déconnexion</button>
+                    <form action="{{ path('admin') }}" method="post">
+                        <button class="btn-red" type="submit">Admin</button>
                     </form>
                 </li>
-                {{ render(controller('AppBundle:Default:menu')) }}
-            </ul>
+
+            {% endif %}
+        </ul>
     </nav>
 </header>

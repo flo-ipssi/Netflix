@@ -20,7 +20,7 @@
                     <li class="flex-item">
                         <div>
                             <a href="{{ path('film-view', {'id': film.id}) }}" >
-                            <div class="cover" style='background: url("{{ asset('uploads/brochures/' ~ film.brochure) }}");background-size: cover;'> </div>
+                                <div class="cover" style='background: url("{{ asset('uploads/brochures/' ~ film.brochure) }}");background-size: cover;'> </div>
                             </a>
                             <p><a href="{{ path('film-view', {'id': film.id}) }}" >{{ film.title }}</a></p>
                         </div>
@@ -29,4 +29,4 @@
             </ul>
         </div>
     </div>
-    {% endblock %}
+{% endblock %}

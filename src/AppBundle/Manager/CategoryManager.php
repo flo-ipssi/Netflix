@@ -34,7 +34,6 @@ class CategoryManager {
         return $this->em->getRepository(Category:: class)
             ->find($id);
     }
-
     /**
      * @param $str
      * @return array
@@ -45,7 +44,6 @@ class CategoryManager {
             ->findBy(
                 array('genre' => $str)
             );
-
         foreach ($arr as $value) {
             $id = $value;
         }

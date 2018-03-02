@@ -42,4 +42,5 @@ class SerieManager {
             ->find($id);
     }
 }
+
 ?>

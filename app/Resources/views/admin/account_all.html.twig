@@ -1,10 +1,9 @@
 {% extends "templates/layout.html.twig" %}
 {% block content %}
-<div class="container user">
-    <h1>Info du compte</h1>
+<div class="container admin">
+<h1>Info du compte</h1>
     <p>Prénom : {{ user.firstname }}</p>
     <p>Nom : {{ user.lastname }}</p>
     <p>adresse email : {{ user.email }}</p>
-    <a href="{{ path('user_edit') }}" >Modifier</a>
 </div>
 {% endblock %}

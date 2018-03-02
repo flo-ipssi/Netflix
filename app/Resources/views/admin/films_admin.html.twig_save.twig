@@ -1,0 +1,19 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Films</title>
+</head>
+<body>
+<a href="{{ path('app_film_new') }}">Ajouter un film</a>
+    {% for film in films %}
+        <p>{{ film.title }}</p>
+        <a href="{{ path('film-delete', {'id': film.id}) }}">delete</a>
+        <a href="{{ asset('uploads/brochures/' ~ film.brochure) }}">View brochure (PDF)</a>
+        <br><br><br>
+        <img src="{{ asset('uploads/brochures/' ~ film.brochure) }}"></img>
+        <a href="{{ path('film_edit', {'id': film.id}) }}">modifier l'utilisateur</a>
+        <a href="{{ path('film-view', {'id': film.id}) }}">view article</a>
+        <hr>
+    {% endfor %}
+</body>
+</html>

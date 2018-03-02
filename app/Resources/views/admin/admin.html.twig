@@ -1,8 +1,8 @@
 {% extends "templates/layout.html.twig" %}
 {% block content %}
     <div class="container admin">
-        <h1>Bienvenue</h1>
-        <p>Seigneur</p>
-        <em>Admin</em>
+        <h1>Bienvenue Admin</h1>
+        <a href="{{ path('admin_films') }}" class="btn btn-lg btn-danger">Gestion films</a>
+        <a href="{{ path('admin_users') }}" class="btn btn-lg btn-danger">Gestion Users</a>
     </div>
 {% endblock %}

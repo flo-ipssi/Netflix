@@ -20,6 +20,7 @@ class CategoryFixtures extends Fixture
         $category->setGenre('Autres');
         $manager->persist($category);
         $manager->flush();
+        $this->addReference('category', $category);
 
     }
 

@@ -1,7 +1,5 @@
 <?php
-
 namespace AppBundle\Controller;
-
 use AppBundle\Entity\Series;
 use AppBundle\Entity\Category;
 use AppBundle\Manager\SerieManager;
@@ -13,7 +11,6 @@ use AppBundle\Manager\FilmManager;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
-
 class SerieController extends Controller
 {
     /**
@@ -24,15 +21,11 @@ class SerieController extends Controller
         $em = $this->getDoctrine()->getManager();
         $series = $em->getRepository(Series::class)->findAll();
         $category = $em->getRepository(Category::class)->findAll();
-
         return $this->render('media/series.html.twig',[
             'series' => $series,
             'categories' => $category
         ]);
     }
-
-
-
     /**
      * @Route("/serie/new", name="app_serie_new")
      */
@@ -45,40 +38,30 @@ class SerieController extends Controller
             // $file stores the uploaded PDF file
             /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
             $file = $serie->getBrochure();
-
             $video = $serie->getVideo();
-
             $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
             $filevideo = $this->generateUniqueFileName().'.'.$video->guessExtension();
-
             // moves the file to the directory where brochures are stored
             $file->move(
                 $this->getParameter('brochures_directory'),
                 $fileName
             );
-
             $video->move(
                 $this->getParameter('video_directory'),
                 $filevideo
             );
-
             // updates the 'brochure' property to store the PDF file name
             // instead of its contents
             $serie->setBrochure($fileName);
             $serie->setVideo($filevideo);
-
             // ... persist the $serie variable or any other work
-
             $serieManager->addSerie($serie, $video);
-
             return $this->redirect($this->generateUrl('series'));
         }
-
         return $this->render('media/new-serie.html.twig', array(
             'form' => $form->createView(),
         ));
     }
-
     /**
      * @return string
      */
@@ -88,18 +71,12 @@ class SerieController extends Controller
         // uniqid(), which is based on timestamps
         return md5(uniqid());
     }
-
-
-
-
-
     /**
      * @Route("/serie/{id}", name="serie-view", requirements={"id"="\d+"})
      */
     public function viewAction(SerieManager $serieManager, $id)
     {
         $serie = $serieManager->getSerie($id);
-
         if(!empty($serie)){
             return $this->render('media/serie-view.html.twig', [
                 'serie' => $serie
@@ -109,18 +86,12 @@ class SerieController extends Controller
             throw new BadRequestHttpException( '404, Project not found.');
         }
     }
-
-
     /**
      * @Route("/serie/delete/{id}", name="serie-delete", requirements={"id"="\d+"})
      */
     public function deleteAction(SerieManager $serieManager, $id)
     {
         $serieManager->deleteSerie($id);
-
-
         return $this->redirectToRoute('series');
-
-
     }
 }

@@ -62,7 +62,7 @@ class User implements UserInterface
      *
      * @ORM\Column(name="member_id", type="integer")
      */
-    private $memberId = 3;
+    private $memberId;
 
 
     public function __construct()
@@ -226,10 +226,16 @@ class User implements UserInterface
 
 
 
-
+    // TODO: Implement getRoles() method.
     public function getRoles()
     {
-        // TODO: Implement getRoles() method.
+        if ($this->memberId == 1){
+            return ['ROLE_ADMIN'];
+        }
+        elseif ($this->memberId == 2){
+            return ['ROLE_PREMIUM'];
+        }
+
         return ['ROLE_USER'];
     }
 

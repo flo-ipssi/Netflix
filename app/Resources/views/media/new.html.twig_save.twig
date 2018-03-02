@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <title>Films</title>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+{{ form_start(form) }}
+{{ form_errors(form) }}
+<div>
+    {{ form_label(form.title) }}
+    {{ form_errors(form.title) }}
+    {{ form_widget(form.title) }}
+</div>
+<div>
+    {{ form_label(form.author) }}
+    {{ form_errors(form.author) }}
+    {{ form_widget(form.author) }}
+</div>
+<div>
+    {{ form_label(form.category) }}
+    {{ form_errors(form.category) }}
+    {{ form_widget(form.category) }}
+</div>
+<div>
+    {{ form_label(form.description) }}
+    {{ form_errors(form.description) }}
+    {{ form_widget(form.description) }}
+</div>
+<div>
+    {{ form_label(form.date) }}
+    {{ form_errors(form.date) }}
+    {{ form_widget(form.date) }}
+</div>
+<div>
+    {{ form_label(form.duration) }}
+    {{ form_errors(form.duration) }}
+    {{ form_widget(form.duration) }}
+</div>
+<div>
+    {{ form_row(form.brochure) }}
+</div>
+<div>
+    {{ form_row(form.video) }}
+</div>
+{{ form_end(form) }}
+</body>
+</html>

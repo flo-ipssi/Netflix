@@ -1,7 +1,5 @@
 <?php
-
 namespace AppBundle\Controller;
-
 use AppBundle\Entity\Category;
 use AppBundle\Entity\Films;
 use AppBundle\Entity\Series;
@@ -12,7 +10,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Bundle\SecurityBundle\Tests\Functional\Bundle\CsrfFormLoginBundle\Form\UserLoginType;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManagerInterface;
-
 class CategoryController extends Controller
 {
     /** @var EntityManagerInterface */
@@ -21,7 +18,6 @@ class CategoryController extends Controller
     {
         $this->em = $entityManager;
     }
-
     /**
      * @Route("/category", name="category")
      */
@@ -32,9 +28,6 @@ class CategoryController extends Controller
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
         ]);
     }
-
-
-
     /**
      * @Route("/category/{cat}", name="category-view-txt")
      */
@@ -61,10 +54,6 @@ class CategoryController extends Controller
             ]);
         }
     }
-
-
-
-
     /**
      * @Route("/series/{cat}", name="category-view")
      */
@@ -91,8 +80,5 @@ class CategoryController extends Controller
             ]);
         }
     }
-
-
 }
-
 ?>

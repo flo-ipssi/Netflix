@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Favoris;
 use AppBundle\Entity\User;
 use AppBundle\Form\UserType;
 use AppBundle\Entity\Category;
@@ -10,6 +11,7 @@ use AppBundle\Manager\UserManager;
 use AppBundle\Repository\FilmsRepository;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use \Symfony\Component\Form\Extension\Core\Type\TextType;
+use \Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Bundle\SecurityBundle\Tests\Functional\Bundle\CsrfFormLoginBundle\Form\UserLoginType;
@@ -20,27 +22,25 @@ class DefaultController extends Controller
     /**
      * @Route("/", name="homepage")
      */
-    public function indexAction(Request $request)
+   public function indexAction(Request $request)
     {
         // replace this example code with whatever you need
-        return $this->render('default/index.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
-        ]);
+  //      return $this->render('default/index.html.twig', [
+      //      'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
+   //     ]);
+        return $this->redirect($this->generateUrl('films'));
     }
 
 
 
     public function menuAction()
     {
-        $tab = array("documentaires", "series", "films");
-        /*$search = new FilmsRepository();
-
-        $form = $this->createFormBuilder($search);*/
-
+        $tab = array("documentaires", "series", "films", "profil");
         return $this->render('templates/menu.html.twig', [
             'tab' => $tab
         ]);
     }
+
 
 
 
@@ -56,23 +56,23 @@ class DefaultController extends Controller
         ]);
     }
 
+
+
     public function searchBarAction()
     {
         $form = $this->createFormBuilder()
             ->add('name',TextType::class, array(
                 'attr' => array(
-                    'placeholder' => 'Recherche de films'
+                    'placeholder' => 'Recherche'
                 )))
             ->add('Ok',SubmitType::class)
             ->setAction($this->generateUrl('search'))
             ->getForm();
-
-        return $this->render('templates/search-bar.twig.html',
+        return $this->render('templates/search-bar.html.twig',
             [
                 'form' => $form->createView()
             ]);
     }
-
     /**
      * @Route("search", name="search")
      * @param Request $request
@@ -83,7 +83,6 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $search = $request->request->get('form')['name'];
-
         $films = $filmManager->search($search);
         $categories = $em->getRepository(Category::class)->findAll();
         return $this->render('media/films.html.twig', [
@@ -91,6 +90,5 @@ class DefaultController extends Controller
             'categories' => $categories
         ]);
     }
-
 
 }

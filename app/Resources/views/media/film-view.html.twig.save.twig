@@ -1,0 +1,25 @@
+{% extends "templates/fiche_layout.html.twig" %}
+{% block content %}
+<div class="container-fluid">
+    <div class="row fiche">
+        <div class="col-sm-6 infos">
+            <h1>{{ film.title }}</h1>
+            <div>
+                <ul>
+                    <li>{{ film.category.genre }} -</li>
+                   <li>{{ film.author }} -</li>
+                   <li>{{ film.date|date('d-m-Y') }}</li>
+                </ul>
+            </div>
+            <div>
+                <p>{{ film.description }}</p>
+            </div>
+            <a class="download" href="{{ asset('uploads/brochures/' ~ film.brochure) }}">Voir l'affiche</a>
+            <a class="back" href="{{ path('films') }}">Retour</a>
+        </div>
+        <div class="col-sm-6 video">
+            <video controls src="{{ asset('uploads/brochures/' ~ film.video) }}"></video>
+        </div>
+    </div>
+</div>
+{% endblock %}

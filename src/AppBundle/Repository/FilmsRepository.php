@@ -1,7 +1,5 @@
 <?php
-
 namespace AppBundle\Repository;
-
 /**
  * FilmsRepository
  *
@@ -15,8 +13,6 @@ class FilmsRepository extends \Doctrine\ORM\EntityRepository
             ->where('f.title like :search')
             ->orWhere('f.author like :search')
             ->setParameter('search', '%' . $search . '%');
-
-
         return $qb
             ->getQuery()
             ->getResult();
