@@ -10,7 +10,10 @@
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 <body>
-{# app/Ressources/admin/login.html.twig #}
+{# app/Ressources/security/login.html.twig #}
+{% if error %}
+    <div>{{ error.messageKey }}</div>
+{% endif %}
 <header>
     <nav>
         <form action="{{ path('login') }}" method="post">
@@ -24,32 +27,10 @@
     </nav>
 </header>
 <div class="container">
-    <fieldset>
-        <legend>Nouveau Compte</legend>
-        {{ form_start(form) }}
-        {{ form_errors(form) }}
-        <div>
-            {{ form_label(form.firstname) }}
-            {{ form_errors(form.firstname) }}
-            {{ form_widget(form.firstname) }}
-        </div>
-        <div>
-            {{ form_label(form.lastname) }}
-            {{ form_errors(form.lastname) }}
-            {{ form_widget(form.lastname) }}
-        </div>
-        <div>
-            {{ form_label(form.email) }}
-            {{ form_errors(form.email) }}
-            {{ form_widget(form.email) }}
-        </div>
-        <div>
-            {{ form_label(form.password) }}
-            {{ form_errors(form.password) }}
-            {{ form_widget(form.password) }}
-        </div>
-        {{ form_end(form) }}
-    </fieldset>
+    <h1>Découvrez et redécouvrez avec Netflix</h1>
+    <h3>Par la compagnie Florémy and Corp</h3>
+    <h5>Pas encore inscris ma-men ?</h5>
+    <a href="#" class="btn btn-lg btn-danger">Inscris-toi</a>
 </div>
 </body>
 </html>

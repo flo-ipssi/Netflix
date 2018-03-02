@@ -1,11 +1,15 @@
 <header>
     <nav>
-        <form action="{{ path('logout') }}" method="post">
             <ul>
                 <li class="left"><img src="{{ asset('img/logo.png') }}"></li>
-                <li class="right"><button class="btn" type="submit">Déconnexion</button></li>
+                {{ render(controller('AppBundle:Default:searchBar')) }}
+
+                <li class="right">
+                    <form action="{{ path('logout') }}" method="post">
+                        <button class="btn" type="submit">Déconnexion</button>
+                    </form>
+                </li>
                 {{ render(controller('AppBundle:Default:menu')) }}
             </ul>
-        </form>
     </nav>
 </header>

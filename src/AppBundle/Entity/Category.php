@@ -18,6 +18,8 @@ class Category
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Films", mappedBy="category")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Series", mappedBy="category")
      */
     private $id;
 

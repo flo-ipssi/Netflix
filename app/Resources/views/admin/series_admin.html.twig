@@ -1,0 +1,26 @@
+{% extends "templates/layout.html.twig" %}
+{% block content %}
+    <div class="container">
+        <a class="download" href="{{ path('app_serie_new') }}">Ajouter un serie <i class="fa fa-plus"></i></a>
+        {% for serie in series %}
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <span class="title">{{ serie.title }}</span>
+                    <a href="{{ path('serie-delete', {'id': serie.id}) }}">
+                        <span class="badge badge-pill badge-danger actions">X</span>
+                    </a>
+                    <a href="{{ path('serie_edit', {'id': serie.id}) }}" target="_blank">
+                        <span class="actions"><i class="fa fa-spinner"></i>Modifier</span>
+                    </a>
+                    <a href="{{ asset('uploads/brochures/' ~ serie.brochure) }}" target="_blank">
+                        <span class="actions"><i class="fa fa-upload"></i>Brochure</span>
+                    </a>
+                    <a href="{{ path('serie-view', {'id': serie.id}) }}" target="_blank">
+                        <span class="actions"><i class="fa fa-file"></i>Fiche</span>
+                    </a>
+                </li>
+            </ul>
+            <hr>
+        {% endfor %}
+    </div>
+{% endblock %}

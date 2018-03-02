@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Films;
+use AppBundle\Entity\Category;
 use AppBundle\Form\FilmType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -22,8 +23,10 @@ class FilmController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $films = $em->getRepository(Films::class)->findAll();
+        $category = $em->getRepository(Category::class)->findAll();
         return $this->render('media/films.html.twig',[
-            'films' => $films
+            'films' => $films,
+            'categories' => $category
         ]);
     }
 

@@ -21,7 +21,8 @@ class FilmFixtures extends Fixture
             ->setDescription('c est un film')
             ->setDuration(200)
             ->setTitle('le test 1')
-            ->setBrochure('../../abcd.jpeg');
+            ->setBrochure('../../abcd.jpeg')
+            ->setVideo('../../abcd.jpeg');
         $manager->persist($film);
         $manager->flush();
     }

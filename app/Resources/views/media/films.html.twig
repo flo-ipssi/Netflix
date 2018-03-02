@@ -1,0 +1,32 @@
+{% extends "templates/layout.html.twig" %}
+{% block content %}
+    <div class="container">
+        <h2>
+            <span class="underline">Films</span>
+            <select class="selectpicker categories" onchange="this.form.submit()">
+                <option value="" selected="selected">Categorie</option>
+                {% for categorie in categories %}
+                    <option value="{{ categorie.genre }}">{{ categorie.genre }}</option>
+                {% endfor %}
+            </select>
+            <select class="selectpicker" data-style="btn-danger">
+                <option value="">De A - Z</option>
+                <option value="">De Z - A</option>
+            </select>
+        </h2>
+        <div class="list">
+            <ul class="flex-container">
+                {% for film in films %}
+                    <li class="flex-item">
+                        <div>
+                            <a href="{{ path('film-view', {'id': film.id}) }}" >
+                            <div class="cover" style='background: url("{{ asset('uploads/brochures/' ~ film.brochure) }}");background-size: cover;'> </div>
+                            </a>
+                            <p><a href="{{ path('film-view', {'id': film.id}) }}" >{{ film.title }}</a></p>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    {% endblock %}

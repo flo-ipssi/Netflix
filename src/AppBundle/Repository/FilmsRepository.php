@@ -10,4 +10,15 @@ namespace AppBundle\Repository;
  */
 class FilmsRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function searchAction($search){
+        $qb = $this->createQueryBuilder('f')
+            ->where('f.title like :search')
+            ->orWhere('f.author like :search')
+            ->setParameter('search', '%' . $search . '%');
+
+
+        return $qb
+            ->getQuery()
+            ->getResult();
+    }
 }

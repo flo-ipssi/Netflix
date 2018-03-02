@@ -19,7 +19,7 @@ security:
             form_login:
                 login_path: login
                 check_path: login
-                default_target_path: category
+                default_target_path: films
             logout:
                 path: logout
                 target: login

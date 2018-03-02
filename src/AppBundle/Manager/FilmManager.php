@@ -1,6 +1,7 @@
 <?php
 namespace AppBundle\Manager;
 use AppBundle\Entity\Films;
+use AppBundle\Repository\FilmsRepository;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Doctrine\ORM\EntityManagerInterface;
 class FilmManager {
@@ -40,6 +41,19 @@ class FilmManager {
     {
         return $this->em->getRepository(Films:: class)
             ->find($id);
+    }
+
+    public function search($name)
+    {
+        if ($name == '') {
+            return [];
+        }
+        /** @var FilmsRepository $filmsRepository */
+
+        $filmsRepository = $this->em->getRepository(Films::class);
+        $films = $filmsRepository->searchAction($name);
+
+        return $films;
     }
 }
 ?>

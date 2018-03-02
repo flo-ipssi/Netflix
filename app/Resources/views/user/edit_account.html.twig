@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>article</title>
+</head>
+<body>
+    {{ form_start(form) }}
+        {{ form_errors(form) }}
+    <div>
+        {{ form_label(form.firstname) }}
+        {{ form_errors(form.firstname) }}
+        {{ form_widget(form.firstname) }}
+    </div>
+    <div>
+        {{ form_label(form.lastname) }}
+        {{ form_errors(form.lastname) }}
+        {{ form_widget(form.lastname) }}
+    </div>
+    <div>
+        {{ form_label(form.email) }}
+        {{ form_errors(form.email) }}
+        {{ form_widget(form.email) }}
+    </div>
+    <div>
+        {{ form_label(form.password) }}
+        {{ form_errors(form.price) }}
+        {{ form_widget(form.price) }}
+    </div>
+        {{ form_end(form) }}
+</body>
+</html>

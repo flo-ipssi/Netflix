@@ -26,7 +26,9 @@ class SerieFixtures extends Fixture
             ->setNumberEpisode(5)
             ->setDescription('test')
             ->setDuration(22)
-            ->setTitle('test');
+            ->setTitle('test')
+            ->setVideo('../../abcd.jpeg')
+            ->setBrochure('../../abcd.jpeg');
         $manager->persist($serie);
         $manager->flush();
 

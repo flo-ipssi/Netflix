@@ -31,9 +31,10 @@ class Films
      */
     private $author;
     /**
-     * @var string
+     * @var int
      *
      * @ORM\Column(name="category", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Category", inversedBy="category")
      */
     private $category;
     /**

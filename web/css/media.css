@@ -1,6 +1,7 @@
 body{
-    background: url("../img/film.jpg") no-repeat;
+    background: url("../img/film.jpg") no-repeat center;
     background-size: cover;
+    background-attachment: fixed;
 }
 
 header{
@@ -42,6 +43,28 @@ header ul li button{
     margin: 0px 10px;
 }
 
+
+header form[action="/search"] button[type="submit"]{
+    float: left;
+    margin: 5px 0px;
+    padding: 6px 9px;
+    background: #FFF;
+    color: #000;
+    border: 3px solid #FFF;
+    border-radius: 50%;
+    font-weight: 600;
+}
+header form[action="/search"] input[type="text"]{
+    border: 3px solid #FFF;
+    color: #fff;
+    background: none;
+    width: 400px;
+    padding: 6px 20px;
+    border-radius: 19px;
+    margin: 5px 20px;
+    float: left;
+}
+
 .btn {
     background: #d93434;
     -webkit-border-radius: 8px;
@@ -73,6 +96,11 @@ header ul li button{
     max-width: 1245px;
     margin: 114px auto;
 }
+
+.admin {
+    color: #FFFFFF;
+}
+
 
 /* Liste des films */
 .container h2{
@@ -137,6 +165,23 @@ div.list{
     text-decoration: none;
     color: #eeeeee;
 }
+.list-group{
+    margin: 20px 10px;
+}
+
+.fa-plus{
+    margin-left: 4px;
+}
+
+
+
+.actions{
+    float: right;
+    margin: auto 5px;
+}
+
+
+
 
 /* Fiche d'un film */
 .infos h1{
@@ -191,8 +236,8 @@ div.list{
 }
 
 .download {
-    -webkit-border-radius: 4;
-    -moz-border-radius: 4;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
     border-radius: 4px;
     font-family: Arial;
     color: #f50c33;
@@ -208,3 +253,108 @@ div.list{
     color: #f50c33;
     text-decoration: none;
 }
+
+/* Formulaire*/
+.container form div {
+    margin-top: 20px;
+}
+.container form {
+    margin:10px auto;
+    max-width: 600px;
+    padding: 20px 12px 10px 20px;
+    font: 13px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+.container form li {
+    padding: 0;
+    display: block;
+    list-style: none;
+    margin: 10px 0 0 0;
+}
+.container form label{
+    margin:0 0 3px 0;
+    padding:0px;
+    display:block;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.container form input[type=text],
+.container form input[type=date],
+.container form input[type=datetime],
+.container form input[type=number],
+.container form input[type=search],
+.container form input[type=time],
+.container form input[type=url],
+.container form input[type=email],
+textarea,
+select{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    border:1px solid #BEBEBE;
+    padding: 7px;
+    margin:0px;
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    outline: none;
+}
+
+.container form input[type="text"]{
+    width: 100%;
+    border-radius: 20px;
+}
+
+.container form input[type=text]:focus,
+.container form input[type=date]:focus,
+.container form input[type=datetime]:focus,
+.container form input[type=number]:focus,
+.container form input[type=search]:focus,
+.container form input[type=time]:focus,
+.container form input[type=url]:focus,
+.container form input[type=email]:focus,
+.container form textarea:focus,
+.container form select:focus{
+    -moz-box-shadow: 0 0 8px #88D5E9;
+    -webkit-box-shadow: 0 0 8px #88D5E9;
+    box-shadow: 0 0 8px #88D5E9;
+    border: 1px solid #88D5E9;
+}
+
+.container form {
+    width: 100%;
+    background: #0009;
+    color: #CCC;
+}
+.container form input[type=submit], .container form input[type=button]{
+    background: #4B99AD;
+    padding: 8px 15px 8px 15px;
+    border: none;
+    color: #fff;
+}
+.container form input[type=submit]:hover, .container form input[type=button]:hover{
+    background: #4691A4;
+    box-shadow:none;
+    -moz-box-shadow:none;
+    -webkit-box-shadow:none;
+}
+
+.container button[type="submit"] {
+    background: none;
+    color: #aaa;
+    padding: 0px 30px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 29px;
+    display: block;
+    margin: 30px auto;
+    cursor: pointer;
+}
+
+
+.container button[type="submit"]:hover {
+    background: #EEE;
+    color: #313131;
+}
+

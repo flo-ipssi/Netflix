@@ -4,7 +4,12 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\User;
 use AppBundle\Form\UserType;
+use AppBundle\Entity\Category;
+use AppBundle\Manager\FilmManager;
 use AppBundle\Manager\UserManager;
+use AppBundle\Repository\FilmsRepository;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use \Symfony\Component\Form\Extension\Core\Type\TextType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Bundle\SecurityBundle\Tests\Functional\Bundle\CsrfFormLoginBundle\Form\UserLoginType;
@@ -27,7 +32,11 @@ class DefaultController extends Controller
 
     public function menuAction()
     {
-        $tab = array("Documentaire", "Serie", "Film");
+        $tab = array("documentaires", "series", "films");
+        /*$search = new FilmsRepository();
+
+        $form = $this->createFormBuilder($search);*/
+
         return $this->render('templates/menu.html.twig', [
             'tab' => $tab
         ]);
@@ -47,6 +56,41 @@ class DefaultController extends Controller
         ]);
     }
 
+    public function searchBarAction()
+    {
+        $form = $this->createFormBuilder()
+            ->add('name',TextType::class, array(
+                'attr' => array(
+                    'placeholder' => 'Recherche'
+                )))
+            ->add('Ok',SubmitType::class)
+            ->setAction($this->generateUrl('search'))
+            ->getForm();
+
+        return $this->render('templates/search-bar.twig.html',
+            [
+                'form' => $form->createView()
+            ]);
+    }
+
+    /**
+     * @Route("search", name="search")
+     * @param Request $request
+     * @param FilmManager $filmManager
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function searchFilms(Request $request, FilmManager $filmManager)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $search = $request->request->get('form')['name'];
+
+        $films = $filmManager->search($search);
+        $categories = $em->getRepository(Category::class)->findAll();
+        return $this->render('media/films.html.twig', [
+            'films' => $films,
+            'categories' => $categories
+        ]);
+    }
 
 
 }

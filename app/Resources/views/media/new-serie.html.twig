@@ -1,0 +1,54 @@
+{% extends "templates/layout.html.twig" %}
+{% block content %}
+    <div class="container">
+        {{ form_start(form) }}
+        {{ form_errors(form) }}
+        <div>
+            {{ form_label(form.title) }}
+            {{ form_errors(form.title) }}
+            {{ form_widget(form.title) }}
+        </div>
+        <div>
+            {{ form_label(form.author) }}
+            {{ form_errors(form.author) }}
+            {{ form_widget(form.author) }}
+        </div>
+        <div>
+            {{ form_label(form.category) }}
+            {{ form_errors(form.category) }}
+            {{ form_widget(form.category) }}
+        </div>
+        <div>
+            {{ form_label(form.number_episode) }}
+            {{ form_errors(form.number_episode) }}
+            {{ form_widget(form.number_episode) }}
+        </div>
+        <div>
+            {{ form_label(form.description) }}
+            {{ form_errors(form.description) }}
+            {{ form_widget(form.description,{ 'attr': {'cols': '50'} }) }}
+        </div>
+        <div>
+            {{ form_label(form.date) }}
+            {{ form_errors(form.date) }}
+            {{ form_widget(form.date) }}
+        </div>
+        <div>
+            {{ form_label(form.duration) }}
+            {{ form_errors(form.duration) }}
+            {{ form_widget(form.duration) }}
+        </div>
+        <div>
+            {{ form_label(form.brochure) }}
+            {{ form_errors(form.brochure) }}
+            {{ form_widget(form.brochure) }}
+
+        </div>
+        <div>
+            {{ form_row(form.video) }}
+        </div>
+        <div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}

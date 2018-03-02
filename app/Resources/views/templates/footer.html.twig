@@ -1,3 +1,14 @@
-<footer>
-    Copyright
-</footer>
+<script>
+    $(function(){
+        // bind change event to select
+        $('.categories').on('change', function () {
+            var chemin;
+            var url = $(this).val(); // get selected value
+            if (url) { // require a URL
+                var chemin ='/films/' + url;
+                window.location = chemin; // redirect
+            }
+            return false;
+        });
+    });
+</script>

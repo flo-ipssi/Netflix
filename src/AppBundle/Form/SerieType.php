@@ -1,6 +1,6 @@
 <?php
 namespace AppBundle\Form;
-use AppBundle\Entity\Films;
+use AppBundle\Entity\Series;
 use AppBundle\Entity\Category;
 use Doctrine\DBAL\Types\DateType;
 use Symfony\Component\Form\AbstractType;
@@ -13,7 +13,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
-class FilmType extends AbstractType
+class SerieType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -24,6 +24,7 @@ class FilmType extends AbstractType
                 'class' => Category::class,
                 'choice_label' => 'genre'
             ])
+            ->add('number_episode', NumberType::class)
             ->add('description', TextType::class)
             ->add('duration', NumberType::class)
             ->add('date', DateTimeType::class)
@@ -35,7 +36,7 @@ class FilmType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => Films::class,
+            'data_class' => Series::class,
         ));
     }
 }
