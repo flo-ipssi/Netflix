@@ -23,9 +23,11 @@ class SerieController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $series = $em->getRepository(Series::class)->findAll();
+        $category = $em->getRepository(Category::class)->findAll();
 
         return $this->render('media/series.html.twig',[
-            'series' => $series
+            'series' => $series,
+            'categories' => $category
         ]);
     }
 

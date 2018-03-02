@@ -4,7 +4,10 @@
         <h2>
             <span class="underline">Séries</span>
             <select class="selectpicker" data-style="btn-danger">
-                <option>Catégorie</option>
+                <option value="" selected="selected">Categorie</option>
+                {% for categorie in categories %}
+                    <option value="{{ categorie.genre }}">{{ categorie.genre }}</option>
+                {% endfor %}
             </select>
 
             <select class="selectpicker" data-style="btn-danger">

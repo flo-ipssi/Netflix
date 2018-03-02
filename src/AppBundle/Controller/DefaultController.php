@@ -61,7 +61,7 @@ class DefaultController extends Controller
         $form = $this->createFormBuilder()
             ->add('name',TextType::class, array(
                 'attr' => array(
-                    'placeholder' => 'Recherche'
+                    'placeholder' => 'Recherche de films'
                 )))
             ->add('Ok',SubmitType::class)
             ->setAction($this->generateUrl('search'))

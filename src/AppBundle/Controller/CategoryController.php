@@ -36,7 +36,7 @@ class CategoryController extends Controller
 
 
     /**
-     * @Route("/films/{cat}", name="category-view")
+     * @Route("/category/{cat}", name="category-view-txt")
      */
     public function viewMoviesCategory(string $cat, CategoryManager $categoryManager,FilmManager $films)
     {
