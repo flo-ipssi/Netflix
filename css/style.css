@@ -1,0 +1,193 @@
+body{
+    background: url("../img/home.jpg") no-repeat;
+    background-size: cover;
+    min-height: 730px;
+}
+
+header{
+    padding: 10px;
+    height: 80px;
+}
+
+header ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+header ul li{
+    display: inline-block;
+}
+header ul li.left{
+    float:left;
+}
+
+header ul li.right{
+    float:right;
+}
+
+#password, #username{
+    border: 0px;
+    border-radius: 12px;
+    padding: 5px 11px 5px 18px;
+    width: 180px;
+}
+
+
+header ul li input,header ul li button{
+    margin: 10px 10px;
+}
+
+.btn {
+    background: #d93434;
+    -webkit-border-radius: 8;
+    -moz-border-radius: 8;
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 16px;
+    padding: 5px 20px 5px 20px;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background: #f50c33;
+    text-decoration: none;
+}
+
+/*CONTENT*/
+.container{
+    padding: 50px 0px;
+}
+
+
+.container h1,.container h3,.container h5{
+    color: #aaa;
+    line-height: 50px;
+}
+
+.container h5{
+    margin-top: 100px;
+}
+
+.container a{
+    width: 450px;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+/* Formulaire*/
+.container fieldset legend {
+    color: #FFF;
+    text-decoration: underline;
+    margin-bottom: -35px;
+    text-align: center;
+    padding-top: 20px;
+}
+.container fieldset {
+    background: #fe262a66;
+    padding: 50px 20px;
+    max-width: 600px;
+    display: block;
+    margin: auto;
+    border-radius: 5px;
+}
+
+.container form div {
+    margin-top: 20px;
+}
+.container form {
+    margin:10px auto;*
+    padding: 20px 12px 10px 20px;
+    font: 13px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+.container form li {
+    padding: 0;
+    display: block;
+    list-style: none;
+    margin: 10px 0 0 0;
+}
+.container form label{
+    margin:0 0 3px 0;
+    padding:0px;
+    display:block;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.container form input[type=text],
+.container form input[type=date],
+.container form input[type=datetime],
+.container form input[type=number],
+.container form input[type=search],
+.container form input[type=time],
+.container form input[type=url],
+.container form input[type=email],
+textarea,
+select{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    border:1px solid #BEBEBE;
+    padding: 7px;
+    margin:0px;
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    outline: none;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+
+.container form input[type="text"]{
+    width: 100%;
+}
+
+.container form input[type=text]:focus,
+.container form input[type=date]:focus,
+.container form input[type=datetime]:focus,
+.container form input[type=number]:focus,
+.container form input[type=search]:focus,
+.container form input[type=time]:focus,
+.container form input[type=url]:focus,
+.container form input[type=email]:focus,
+.container form textarea:focus,
+.container form select:focus{
+    -moz-box-shadow: 0 0 8px #88D5E9;
+    -webkit-box-shadow: 0 0 8px #88D5E9;
+    box-shadow: 0 0 8px #88D5E9;
+    border: 1px solid #88D5E9;
+}
+
+.container form {
+    width: 100%;
+    color: #CCC;
+}
+
+.container button[type="submit"] {
+    background: #e04a4a;
+    background-image: -webkit-linear-gradient(top, #e04a4a, #c24040);
+    background-image: -moz-linear-gradient(top, #e04a4a, #c24040);
+    background-image: -ms-linear-gradient(top, #e04a4a, #c24040);
+    background-image: -o-linear-gradient(top, #e04a4a, #c24040);
+    background-image: linear-gradient(to bottom, #e04a4a, #c24040);
+    -webkit-border-radius: 7;
+    -moz-border-radius: 7;
+    border-radius: 7px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 16px;
+    padding: 11px 22px 11px 22px;
+    border: solid #d1c1c1 2px;
+    text-decoration: none;
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+}
+
+
+.container button[type="submit"]:hover  {
+    background: #fc3c3c;
+    text-decoration: none;
+}
