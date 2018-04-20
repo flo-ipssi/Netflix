@@ -26,6 +26,6 @@ security:
 
     access_control:
         - { path: ^/admin, roles: "ROLE_ADMIN" }
-        - { path: ^/user, roles: "ROLE_USER" }
+        - { path: ^/user, roles: ["ROLE_USER", "ROLE_ADMIN"] }
         - { path: ^/films, roles: ["ROLE_USER", "ROLE_ADMIN"] }
-        - { path: ^/films, roles: ["ROLE_USER", "ROLE_ADMIN"] }
+        - { path: ^/film, roles: ["ROLE_USER", "ROLE_ADMIN"] }

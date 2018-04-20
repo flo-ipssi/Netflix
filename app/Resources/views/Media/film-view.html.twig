@@ -1,0 +1,46 @@
+{% extends "templates/fiche_layout.html.twig" %}
+{% block content %}
+<div class="container-fluid">
+    <div class="row fiche">
+        <div class="col-sm-6 infos">
+            <h1>{{ film.title }}</h1>
+            <div>
+                <ul>
+                   <li>{{ film.category.genre }} -</li>
+                   <li>{{ film.author }} -</li>
+                   <li>{{ film.date|date('d-m-Y') }}</li>
+                </ul>
+            </div>
+            <div>
+                <p>{{ film.description }}</p>
+            </div>
+            <a class="download" href="{{ asset('uploads/brochures/' ~ film.brochure) }}">Voir l'affiche</a>
+            <a class="back" href="{{ path('films') }}">Retour</a>
+        </div>
+        <div class="col-sm-6 video">
+            <video controls src="{{ asset('uploads/brochures/' ~ film.video) }}"></video>
+        </div>
+        <div class="col-sm-12 ">
+            {% for message in messages %}
+                <div class="comments">
+                    <img src="{{ asset('uploads/avatar.png') }} " alt="Avatar" style="width:100%;">
+                    <p><strong>Pseudo</strong></p>
+                    <p>{{  message.commentary }}</p>
+                    <span class="time-right">{{  message.getCreatAd()|date('d-m-Y H:i:s') }}</span>
+                </div>
+            {% endfor %}
+
+
+            {{ form_start(form) }}
+            {{ form_errors(form) }}
+
+            {{ form_errors(form.commentary) }}
+            {{ form_widget(form.commentary) }}
+
+
+            {{ form_end(form) }}
+        </div>
+    </div>
+
+</div>
+{% endblock %}

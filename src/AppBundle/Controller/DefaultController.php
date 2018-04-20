@@ -2,7 +2,6 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Entity\Favoris;
 use AppBundle\Entity\User;
 use AppBundle\Form\UserType;
 use AppBundle\Entity\Category;
@@ -11,7 +10,6 @@ use AppBundle\Manager\UserManager;
 use AppBundle\Repository\FilmsRepository;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use \Symfony\Component\Form\Extension\Core\Type\TextType;
-use \Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Bundle\SecurityBundle\Tests\Functional\Bundle\CsrfFormLoginBundle\Form\UserLoginType;
@@ -35,7 +33,7 @@ class DefaultController extends Controller
 
     public function menuAction()
     {
-        $tab = array("documentaires", "series", "films", "profil");
+        $tab = array("series", "films", "profil");
         return $this->render('templates/menu.html.twig', [
             'tab' => $tab
         ]);
@@ -90,5 +88,7 @@ class DefaultController extends Controller
             'categories' => $categories
         ]);
     }
+
+
 
 }

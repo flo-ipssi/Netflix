@@ -7,6 +7,7 @@ use AppBundle\Entity\User;
 use AppBundle\Entity\Serie;
 use AppBundle\Form\FilmType;
 use AppBundle\Form\UserType;
+use AppBundle\Form\UseradminType;
 use AppBundle\Manager\UserManager;
 use AppBundle\Manager\FilmManager;
 use AppBundle\Manager\SerieManager;
@@ -123,7 +124,7 @@ class AdminController extends Controller
     $user = $em->getRepository(User:: class)
     ->find($id);
 
-    $form = $this->createForm(UserType:: class, $user);
+    $form = $this->createForm(UseradminType:: class, $user);
 
     $form->handleRequest($request);
     if ($form->isSubmitted() && $form->isValid())

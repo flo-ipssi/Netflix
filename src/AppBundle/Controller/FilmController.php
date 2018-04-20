@@ -3,10 +3,15 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Category;
+use AppBundle\Entity\Commentary;
 use AppBundle\Entity\Films;
+use AppBundle\Repository\UserRepository;
 use AppBundle\Form\FilmType;
+use AppBundle\Manager\UserManager;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Manager\FilmManager;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
@@ -95,13 +100,52 @@ class FilmController extends Controller
     /**
      * @Route("/film/{id}", name="film-view", requirements={"id"="\d+"})
      */
-    public function viewAction(FilmManager $filmManager, $id)
+    public function viewAction(FilmManager $filmManager, $id, Request $request)
     {
+        $em = $this->getDoctrine()->getManager();
         $film = $filmManager->getFilm($id);
 
+        $repository = $this->getDoctrine()->getManager()->getRepository('AppBundle:User');
+        $name = $repository->FindName($id);
+
         if(!empty($film)){
+        /* AJOUT DE COMMENTAIRE  */
+            $commentary = new Commentary();
+            /* Default Values */
+            $commentary->setUser($this->getUser()->getId());
+            $commentary->setIdWork((int)$id);
+            $commentary->setType(1);
+            $commentary->setCreatAd();
+            /*************************************/
+            $form = $this->createFormBuilder($commentary)
+                ->add('commentary', TextType:: class, array(
+                    'attr' => array(
+                        'placeholder' => 'Commentaires',
+                        'value' => '',
+                    )))
+                ->add('save', SubmitType::class, array('label' => 'Submit'))
+                ->getForm();
+            $form->handleRequest( $request );
+            if ($form->isSubmitted() && $form->isValid()) {
+                $commentary = $form->getData();
+                $em->persist( $commentary );
+                $em->flush();
+            }
+        /* *************************************** */
+        /* VUE DES COMMENTAIRE PRECEDENTS */
+            $messages = $em->getRepository(Commentary::class)
+                ->findBy(
+                    array(
+                   'idWork' => $id,
+                   'type' => 1
+                ));
+
+        /* *************************************** */
             return $this->render('media/film-view.html.twig', [
-                'film' => $film
+                'film' => $film,
+                'form' => $form->createView(),
+                'messages' => $messages
+
             ]);
         }
         else{

@@ -18,11 +18,11 @@ class Commentary
      */
     private $id;
     /**
-     * @var int
+     * @var string
      *
-     * @ORM\Column(name="id_user", type="integer")
+     * @ORM\Column(name="user", type="string")
      */
-    private $idUser;
+    private $user;
     /**
      * @var int
      *
@@ -36,12 +36,6 @@ class Commentary
      */
     private $type;
     /**
-     * @var int
-     *
-     * @ORM\Column(name="icon", type="integer")
-     */
-    private $icon;
-    /**
      * @var string
      *
      * @ORM\Column(name="commentary", type="text", nullable=true)
@@ -53,6 +47,15 @@ class Commentary
      * @ORM\Column(name="creatAd", type="datetime")
      */
     private $creatAd;
+
+
+
+    public function __construct()
+    {
+        $this->creatAd = new \Datetime();
+    }
+
+
     /**
      * Get id
      *
@@ -63,25 +66,25 @@ class Commentary
         return $this->id;
     }
     /**
-     * Set idUser
+     * Set User
      *
-     * @param integer $idUser
+     * @param string $User
      *
      * @return Commentary
      */
-    public function setIdUser($idUser)
+    public function setUser($User)
     {
-        $this->idUser = $idUser;
+        $this->User = $User;
         return $this;
     }
     /**
-     * Get idUser
+     * Get User
      *
-     * @return int
+     * @return string
      */
-    public function getIdUser()
+    public function getUser()
     {
-        return $this->idUser;
+        return $this->User;
     }
     /**
      * Set idWork
@@ -126,27 +129,6 @@ class Commentary
         return $this->type;
     }
     /**
-     * Set icon
-     *
-     * @param integer $icon
-     *
-     * @return Commentary
-     */
-    public function setIcon($icon)
-    {
-        $this->icon = $icon;
-        return $this;
-    }
-    /**
-     * Get icon
-     *
-     * @return int
-     */
-    public function getIcon()
-    {
-        return $this->icon;
-    }
-    /**
      * Set commentary
      *
      * @param string $commentary
@@ -174,10 +156,9 @@ class Commentary
      *
      * @return Commentary
      */
-    public function setCreatAd($creatAd)
+    public function setCreatAd()
     {
-        $this->creatAd = $creatAd;
-        return $this;
+        return $this->creatAd;
     }
     /**
      * Get creatAd

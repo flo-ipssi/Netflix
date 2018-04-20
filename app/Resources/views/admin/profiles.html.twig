@@ -1,18 +1,18 @@
 {% extends "templates/layout.html.twig" %}
 {% block content %}
-<div class="container admin">
-    <h1>Liste des utilisateurs</h1>
-    <a class="download" href="{{ path('register') }}">Ajouter un utilisateur <i class="fa fa-plus"></i></a>
-    <hr>
-    {% for user in user %}
-        <p>Prénom : {{ user.firstname }}</p>
-        <p>Nom : {{ user.lastname }}</p>
-        <p>adresse email : {{ user.email }}</p>
-        <p>member_id : {{ user.memberid }}</p>
-        <a class="btn btn-primary" href="{{ path('admin_edit', {'id': user.id}) }}">Modifier</a>
-        <a class="btn btn-danger" href="{{ path('user-delete', {'id': user.id}) }}">Supprimer</a>
-        <a class="btn btn-warning" href="{{ path('user-view', {'id': user.id}) }}">Fiche</a>
-    <hr>
-    {% endfor %}
-</div>
+    <div class="container admin">
+        <h1>Liste des utilisateurs</h1>
+        <a class="download" href="{{ path('register') }}">Ajouter un utilisateur <i class="fa fa-plus"></i></a>
+        <hr>
+        {% for user in user %}
+            <p>Prénom : {{ user.firstname }}</p>
+            <p>Nom : {{ user.lastname }}</p>
+            <p>adresse email : {{ user.email }}</p>
+            <p>member_id : {{ user.memberid }}</p>
+            <a class="btn btn-primary" href="{{ path('admin_edit', {'id': user.id}) }}">Modifier</a>
+            <a class="btn btn-danger" href="{{ path('user-delete', {'id': user.id}) }}">Supprimer</a>
+            <a class="btn btn-warning" href="{{ path('user-view', {'id': user.id}) }}">Fiche</a>
+            <hr>
+        {% endfor %}
+    </div>
 {% endblock %}

@@ -1,7 +1,7 @@
 body{
     background: url("../img/home.jpg") no-repeat;
     background-size: cover;
-    min-height: 730px;
+    min-height: 100vh;
 }
 
 header{
@@ -40,8 +40,8 @@ header ul li input,header ul li button{
 
 .btn {
     background: #d93434;
-    -webkit-border-radius: 8;
-    -moz-border-radius: 8;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
     border-radius: 8px;
     color: #ffffff;
     font-size: 16px;
@@ -84,7 +84,6 @@ header ul li input,header ul li button{
     padding-top: 20px;
 }
 .container fieldset {
-    background: #fe262a66;
     padding: 50px 20px;
     max-width: 600px;
     display: block;
@@ -97,7 +96,7 @@ header ul li input,header ul li button{
 }
 .container form {
     margin:10px auto;*
-    padding: 20px 12px 10px 20px;
+padding: 20px 12px 10px 20px;
     font: 13px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 .container form li {
@@ -172,8 +171,8 @@ select{
     background-image: -ms-linear-gradient(top, #e04a4a, #c24040);
     background-image: -o-linear-gradient(top, #e04a4a, #c24040);
     background-image: linear-gradient(to bottom, #e04a4a, #c24040);
-    -webkit-border-radius: 7;
-    -moz-border-radius: 7;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
     border-radius: 7px;
     font-family: Arial;
     color: #ffffff;

@@ -1,0 +1,25 @@
+{% extends "templates/fiche_layout.html.twig" %}
+{% block content %}
+    <div class="container-fluid">
+        <div class="row fiche">
+            <div class="col-sm-6 infos">
+                <h1>{{ serie.title }}</h1>
+                <div>
+                    <ul>
+                        <li>{{ serie.category }} -</li>
+                        <li>{{ serie.author }} -</li>
+                        <li>{{ serie.date|date('d-m-Y') }}</li>
+                    </ul>
+                </div>
+                <div>
+                    <p>{{ serie.description }}</p>
+                </div>
+                <a class="download" href="{{ asset('uploads/brochures/' ~ serie.brochure) }}">Voir l'affiche</a>
+                <a class="back" href="{{ path('series') }}">Retour</a>
+            </div>
+            <div class="col-sm-6 video">
+                <video controls src="{{ asset('uploads/brochures/' ~ serie.video) }}"></video>
+            </div>
+        </div>
+    </div>
+{% endblock %}

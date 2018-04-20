@@ -54,6 +54,7 @@ header form[action="/search"] button[type="submit"]{
     border-radius: 50%;
     font-weight: 600;
 }
+
 header form[action="/search"] input[type="text"]{
     border: 3px solid #FFF;
     color: #fff;
@@ -65,7 +66,7 @@ header form[action="/search"] input[type="text"]{
     float: left;
 }
 
-.btn {
+.btn-red {
     background: #d93434;
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
@@ -74,9 +75,10 @@ header form[action="/search"] input[type="text"]{
     font-size: 16px;
     padding: 5px 20px 5px 20px;
     text-decoration: none;
+    border: 0px;
 }
 
-.btn:hover {
+.btn-red:hover {
     background: #f50c33;
     text-decoration: none;
 }
@@ -90,16 +92,48 @@ header form[action="/search"] input[type="text"]{
 /*CONTENT*/
 .container-fluid {
     margin-top: 90px;
-    min-height: 600px;
+    min-height: 87vh;
 }
 .container {
     max-width: 1245px;
     margin: 114px auto;
 }
 
-.admin {
+.user hr {
+    border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+.admin, .user {
     color: #FFFFFF;
 }
+
+.user a{
+    background: #3498db;
+    background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+    background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+    background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+    background-image: -o-linear-gradient(top, #3498db, #2980b9);
+    background-image: linear-gradient(to bottom, #3498db, #2980b9);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 20px;
+    padding: 6px 20px 6px 20px;
+    text-decoration: none;
+}
+
+.user a:hover {
+    background: #2c82b8;
+    background-image: -webkit-linear-gradient(top, #2c82b8, #297cb3);
+    background-image: -moz-linear-gradient(top, #2c82b8, #297cb3);
+    background-image: -ms-linear-gradient(top, #2c82b8, #297cb3);
+    background-image: -o-linear-gradient(top, #2c82b8, #297cb3);
+    background-image: linear-gradient(to bottom, #2c82b8, #297cb3);
+    text-decoration: none;
+}
+
 
 
 /* Liste des films */
@@ -192,7 +226,7 @@ div.list{
 
 .fiche{
     background: #000000b3;
-    min-height: 650px;
+    min-height: 87vh;
     padding: 60px 50px;
 }
 .infos ul{
@@ -231,7 +265,7 @@ div.list{
 
 .back:hover {
     background: #fc3c3c;
-    text-decoration: none;;
+    text-decoration: none;
     color: #FFF;
 }
 
@@ -258,18 +292,22 @@ div.list{
 .container form div {
     margin-top: 20px;
 }
+
 .container form {
     margin:10px auto;
     max-width: 600px;
     padding: 20px 12px 10px 20px;
     font: 13px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
+
 .container form li {
     padding: 0;
     display: block;
     list-style: none;
     margin: 10px 0 0 0;
 }
+
+
 .container form label{
     margin:0 0 3px 0;
     padding:0px;
@@ -324,7 +362,7 @@ select{
 
 .container form {
     width: 100%;
-    background: #0009;
+    background: #222627;
     color: #CCC;
 }
 .container form input[type=submit], .container form input[type=button]{
@@ -358,3 +396,54 @@ select{
     color: #313131;
 }
 
+/*COMMENTAIRE */
+.comments {
+    border: 2px solid #dedede;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.darker {
+    border-color: #ccc;
+    background-color: #ddd;
+}
+
+.comments::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.comments img {
+    float: left;
+    max-width: 60px;
+    width: 100%;
+    margin-right: 20px;
+    border-radius: 50%;
+}
+
+.comments img.right {
+    float: right;
+    margin-left: 20px;
+    margin-right:0;
+}
+.comments + form button {
+    display: none;
+}
+
+.comments + form input {
+    padding: 5px;
+    width: 100%;
+}
+
+.time-right {
+    float: right;
+    color: #aaa;
+}
+
+.time-left {
+    float: left;
+    color: #999;
+}
