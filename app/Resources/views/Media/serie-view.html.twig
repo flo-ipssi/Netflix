@@ -6,7 +6,7 @@
                 <h1>{{ serie.title }}</h1>
                 <div>
                     <ul>
-                        <li>{{ serie.category }} -</li>
+                        <li>{{ serie.category.genre }} -</li>
                         <li>{{ serie.author }} -</li>
                         <li>{{ serie.date|date('d-m-Y') }}</li>
                     </ul>
@@ -16,6 +16,7 @@
                 </div>
                 <a class="download" href="{{ asset('uploads/brochures/' ~ serie.brochure) }}">Voir l'affiche</a>
                 <a class="back" href="{{ path('series') }}">Retour</a>
+                <a class="btn btn-primary star" href="#" data-toggle="button" aria-pressed="false" autocomplete="off"><i class="fa fa-star-o" aria-hidden="true"></i></a>
             </div>
             <div class="col-sm-6 video">
                 <video controls src="{{ asset('uploads/brochures/' ~ serie.video) }}"></video>

@@ -31,9 +31,6 @@ class Series
      */
     private $author;
     /**
-     * @var int
-     *
-     * @ORM\Column(name="category", type="string", length=255)
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Category", inversedBy="category")
      */
     private $category;
@@ -115,11 +112,11 @@ class Series
     /**
      * Set category
      *
-     * @param string $category
+     * @param \AppBundle\Entity\Category $category
      *
      * @return Series
      */
-    public function setCategory($category)
+    public function setCategory(\AppBundle\Entity\Category $category)
     {
         $this->category = $category;
         return $this;
@@ -127,7 +124,7 @@ class Series
     /**
      * Get category
      *
-     * @return string
+     * @return \AppBundle\Entity\Category
      */
     public function getCategory()
     {
@@ -212,9 +209,9 @@ class Series
      *
      * @return string
      */
-    public function getDuration($duration)
+    public function getDuration()
     {
-        return $duration->$duration;
+        return $this->duration;
     }
     /**
      * @ORM\Column(type="string")

@@ -1,0 +1,44 @@
+{% extends "templates/layout.html.twig" %}
+{% block content %}
+    <div class="container">
+        <h2>
+            <span class="underline">Films</span>
+        </h2>
+        <div class="list">
+            <ul class="flex-container">
+                {% for favorie in favories %}
+                    {% for film in films %}
+                        <li class="flex-item">
+                            <div>
+                                <a href="{{ path('film-view', {'id': favorie.idWork}) }}" >
+                                    <div class="cover" style='background: url("{{ asset('uploads/brochures/' ~ film.brochure) }}");background-size: cover;'> </div>
+                                </a>
+                                <p><a href="{{ path('film-view', {'id': favorie.idWork}) }}" >{{ film.title }}</a></p>
+                            </div>
+                        </li>
+                    {% endfor %}
+                {% endfor %}
+            </ul>
+        </div>
+        <br>
+        <h2>
+            <span class="underline">Serie</span>
+        </h2>
+        <div class="list">
+            <ul class="flex-container">
+                {% for favorie in favories %}
+                    {% for film in films %}
+                        <li class="flex-item">
+                            <div>
+                                <a href="{{ path('film-view', {'id': favorie.idWork}) }}" >
+                                    <div class="cover" style='background: url("{{ asset('uploads/brochures/' ~ film.brochure) }}");background-size: cover;'> </div>
+                                </a>
+                                <p><a href="{{ path('film-view', {'id': favorie.idWork}) }}" >{{ film.title }}</a></p>
+                            </div>
+                        </li>
+                    {% endfor %}
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}

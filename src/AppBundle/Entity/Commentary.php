@@ -21,6 +21,7 @@ class Commentary
      * @var string
      *
      * @ORM\Column(name="user", type="string")
+     *
      */
     private $user;
     /**
@@ -72,19 +73,19 @@ class Commentary
      *
      * @return Commentary
      */
-    public function setUser($User)
+    public function setUser($user)
     {
-        $this->User = $User;
+        $this->user = $user;
         return $this;
     }
     /**
-     * Get User
+     * Get user
      *
      * @return string
      */
     public function getUser()
     {
-        return $this->User;
+        return $this->user;
     }
     /**
      * Set idWork

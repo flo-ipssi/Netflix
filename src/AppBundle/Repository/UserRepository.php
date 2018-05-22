@@ -14,10 +14,9 @@ class UserRepository extends \Doctrine\ORM\EntityRepository
         /*$queryBuilder = $this->_em->createQueryBuilder()
             ->select('firstname')
             ->from($this->_entityName, 'firstname')
-        ;*/
+        ;
         $qb = $this->createQueryBuilder('a');
         $qb
-            ->select('firstname')
             ->where('a.id = :id')
             ->setParameter('id', $id)
         ;
@@ -25,6 +24,6 @@ class UserRepository extends \Doctrine\ORM\EntityRepository
         return $qb
             ->getQuery()
             ->getResult()
-            ;
+            ;*/
     }
 }

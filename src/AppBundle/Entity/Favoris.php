@@ -27,6 +27,8 @@ class Favoris
      * @var int
      *
      * @ORM\Column(name="id_work", type="integer")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Films", inversedBy="films")
+     *
      */
     private $idWork;
     /**

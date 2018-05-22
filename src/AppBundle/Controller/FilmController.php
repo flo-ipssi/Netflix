@@ -5,11 +5,13 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\Category;
 use AppBundle\Entity\Commentary;
 use AppBundle\Entity\Films;
+use AppBundle\Entity\User;
 use AppBundle\Repository\UserRepository;
 use AppBundle\Form\FilmType;
 use AppBundle\Manager\UserManager;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
@@ -104,21 +106,18 @@ class FilmController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $film = $filmManager->getFilm($id);
-
-        $repository = $this->getDoctrine()->getManager()->getRepository('AppBundle:User');
-        $name = $repository->FindName($id);
-
+        $user = $this->getUser();
         if(!empty($film)){
         /* AJOUT DE COMMENTAIRE  */
             $commentary = new Commentary();
             /* Default Values */
-            $commentary->setUser($this->getUser()->getId());
             $commentary->setIdWork((int)$id);
             $commentary->setType(1);
             $commentary->setCreatAd();
+            $commentary->setUser((string) $user->getFirstname());
             /*************************************/
             $form = $this->createFormBuilder($commentary)
-                ->add('commentary', TextType:: class, array(
+                ->add('commentary', TextareaType:: class, array(
                     'attr' => array(
                         'placeholder' => 'Commentaires',
                         'value' => '',
@@ -152,7 +151,6 @@ class FilmController extends Controller
             throw new BadRequestHttpException( '404, Project not found.');
         }
     }
-
 
 
 }

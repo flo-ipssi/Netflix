@@ -4,8 +4,9 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Films;
 use AppBundle\Entity\User;
-use AppBundle\Entity\Serie;
+use AppBundle\Entity\Series;
 use AppBundle\Form\FilmType;
+use AppBundle\Form\SerieType;
 use AppBundle\Form\UserType;
 use AppBundle\Form\UseradminType;
 use AppBundle\Manager\UserManager;
@@ -117,7 +118,7 @@ class AdminController extends Controller
     /**
      * @Route("/admin/user/edit/{id}", name="admin_edit")
      */
-    public function editAction(UserManager $userManager, Request $request,  $id)
+    public function editAction(UserManager $userManager, Request $request, $id)
     {
 
     $em = $this->getDoctrine()->getManager();
@@ -165,7 +166,7 @@ class AdminController extends Controller
     public function listSeries()
     {
         $em = $this->getDoctrine()->getManager();
-        $series = $em->getRepository(Serie::class)->findAll();
+        $series = $em->getRepository(Series::class)->findAll();
         return $this->render('admin/series_admin.html.twig',[
             'series' => $series
         ]);
@@ -177,7 +178,7 @@ class AdminController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
-        $serie = $em->getRepository(Serie:: class)
+        $serie = $em->getRepository(Series:: class)
             ->find($id);
         $serie->setBrochure(null);
         $serie->setVideo(null);

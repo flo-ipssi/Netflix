@@ -16,6 +16,7 @@
             </div>
             <a class="download" href="{{ asset('uploads/brochures/' ~ film.brochure) }}">Voir l'affiche</a>
             <a class="back" href="{{ path('films') }}">Retour</a>
+            <a class="btn btn-primary star" href="{{ path('film-favoris', {'id': film.id}) }}" data-toggle="button" aria-pressed="false" autocomplete="off"><i class="fa fa-star-o" aria-hidden="true"></i></a>
         </div>
         <div class="col-sm-6 video">
             <video controls src="{{ asset('uploads/brochures/' ~ film.video) }}"></video>
@@ -24,7 +25,7 @@
             {% for message in messages %}
                 <div class="comments">
                     <img src="{{ asset('uploads/avatar.png') }} " alt="Avatar" style="width:100%;">
-                    <p><strong>Pseudo</strong></p>
+                    <p><strong>{{ message.user }}</strong></p>
                     <p>{{  message.commentary }}</p>
                     <span class="time-right">{{  message.getCreatAd()|date('d-m-Y H:i:s') }}</span>
                 </div>
@@ -37,7 +38,7 @@
             {{ form_errors(form.commentary) }}
             {{ form_widget(form.commentary) }}
 
-
+        <input type="submit" value=">>"/>
             {{ form_end(form) }}
         </div>
     </div>
